@@ -27,7 +27,10 @@ class SolidityFlattener:
         content = []
         base_dir = os.path.dirname(file_path)
 
-        with open(file_path, 'r', encoding='utf-8') as f:
+        if "@openzeppelin" in file_path:
+            raise FileNotFoundError("@openzeppelin")
+        else:
+            with open(file_path, 'r', encoding='utf-8') as f:
                 lines = f.readlines()
 
         content.append(f"// --- START: {os.path.basename(file_path)} ---\n")
