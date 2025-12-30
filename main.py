@@ -1,5 +1,7 @@
 import json
 import os
+import numpy as np
+import pandas as pd
 
 
 def find_json_files(root_dir):
@@ -13,8 +15,10 @@ def find_json_files(root_dir):
     return json_files
 
 
-def main():
+def get_reentrant_contracts():
+    print("id,loc")
     ls = sorted(os.listdir("DAppSCAN-source/SWCsource"))
+    cnt = 0
     for dir in ls:
         reent_found = False
         ls2 = sorted(os.listdir(f"DAppSCAN-source/SWCsource/{dir}"))
@@ -23,15 +27,31 @@ def main():
             for json_filename in jsons:
                 with open(json_filename, "r") as fp:
                     j = json.load(fp)
+                filename = j["filePath"]
                 swc_list = j["SWCs"]
+                reent_found2 = False
                 for swc in swc_list:
                     vuln = swc["category"]
                     if vuln == 'SWC-107-Reentrancy':
                         reent_found = True
+                        reent_found2 = True
+                if reent_found2:
+                    cnt += 1
+                    print(str(cnt).zfill(3), filename, sep=',')
             assert len(jsons) >= 1
-        if reent_found:
-            print(dir)
+        # if reent_found:
+        #     print(dir)
+        
+        
+def flatten():
+    df = pd.read_csv('reentrant-contract.csv', dtype=np.object_)
+    for i in df.index:
+        flattened_filename = str(df.loc[i, "id"]) + ".sol"
+        os.system(f'''uv run ./flattener.py "{df.loc[i, "loc"]}" "./flattened/{flattened_filename}"''')
             
+
+def main():
+    flatten()
 
 
 if __name__ == "__main__":
