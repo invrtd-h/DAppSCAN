@@ -45,9 +45,8 @@ class SolidityFlattener:
         base_dir = os.path.dirname(file_path)
         
         if "@openzeppelin" in file_path:
-            if version >= "0.8.0":
-                print(version)
-                exit(1)
+            if version >= "0.8.10":
+                file_path = os.path.abspath("./openzeppelin-contracts") + file_path.split("@openzeppelin")[1]
 
         if "@openzeppelin" in file_path:
             raise FileNotFoundError("@openzeppelin")
