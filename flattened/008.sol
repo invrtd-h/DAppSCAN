@@ -705,6 +705,7 @@ interface IArchangel {
 // --- END: IArchangel.sol ---
 
 // --- START: IAngel.sol ---
+pragma experimental ABIEncoderV2;
 
 interface IAngel {
     struct UserInfo {
@@ -733,6 +734,7 @@ interface IAngel {
 
 // --- START: IFountain.sol ---
 
+pragma experimental ABIEncoderV2;
 
 
 // --- START: IERC20Permit.sol ---
@@ -948,6 +950,7 @@ abstract contract ErrorMsg {
 
 // --- START: FountainToken.sol ---
 
+pragma experimental ABIEncoderV2;
 
 
 // --- START: ERC20Permit.sol ---
