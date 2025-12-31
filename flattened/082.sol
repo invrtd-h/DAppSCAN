@@ -1,6 +1,8 @@
+
 // --- START: CoreVoting.sol ---
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.0;
+
 
 // --- START: IVotingVault.sol ---
 
@@ -16,7 +18,9 @@ interface IVotingVault {
         bytes calldata extraData
     ) external returns (uint256);
 }
+
 // --- END: IVotingVault.sol ---
+
 // --- START: Authorizable.sol ---
 
 contract Authorizable {
@@ -75,6 +79,7 @@ contract Authorizable {
         authorized[who] = true;
     }
 }
+
 // --- END: Authorizable.sol ---
 
 contract CoreVoting is Authorizable {
@@ -406,4 +411,5 @@ contract CoreVoting is Authorizable {
         }
     }
 }
+
 // --- END: CoreVoting.sol ---

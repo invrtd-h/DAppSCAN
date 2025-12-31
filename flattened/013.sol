@@ -1,3 +1,4 @@
+
 // --- START: Etherscan-0x9F599410D207f3D2828a8712e5e543AC2E040382.sol ---
 /**
  *Submitted for verification at Etherscan.io on 2019-07-01
@@ -515,4 +516,5 @@ contract UpgradeAgent {
 
   function upgradeFrom(address _from, uint256 _value) public;
 
-}// --- END: Etherscan-0x9F599410D207f3D2828a8712e5e543AC2E040382.sol ---
+}
+// --- END: Etherscan-0x9F599410D207f3D2828a8712e5e543AC2E040382.sol ---

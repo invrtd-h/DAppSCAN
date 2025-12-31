@@ -1,10 +1,16 @@
+
 // --- START: DynamicLiquidTokenConverter.sol ---
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity 0.6.12;
+
 // --- START: LiquidTokenConverter.sol ---
+
 // --- START: ConverterBase.sol ---
+
 // --- START: IConverter.sol ---
+
 // --- START: IConverterAnchor.sol ---
+
 // --- START: IOwned.sol ---
 
 /*
@@ -17,6 +23,7 @@ interface IOwned {
     function transferOwnership(address _newOwner) external;
     function acceptOwnership() external;
 }
+
 // --- END: IOwned.sol ---
 
 /*
@@ -24,7 +31,9 @@ interface IOwned {
 */
 interface IConverterAnchor is IOwned {
 }
+
 // --- END: IConverterAnchor.sol ---
+
 // --- START: IERC20Token.sol ---
 
 /*
@@ -42,7 +51,9 @@ interface IERC20Token {
     function transferFrom(address _from, address _to, uint256 _value) external returns (bool);
     function approve(address _spender, uint256 _value) external returns (bool);
 }
+
 // --- END: IERC20Token.sol ---
+
 // --- START: IWhitelist.sol ---
 
 /*
@@ -51,6 +62,7 @@ interface IERC20Token {
 interface IWhitelist {
     function isWhitelisted(address _address) external view returns (bool);
 }
+
 // --- END: IWhitelist.sol ---
 
 /*
@@ -91,7 +103,9 @@ interface IConverter is IOwned {
     function connectorTokens(uint256 _index) external view returns (IERC20Token);
     function connectorTokenCount() external view returns (uint16);
 }
+
 // --- END: IConverter.sol ---
+
 // --- START: IConverterUpgrader.sol ---
 
 /*
@@ -101,7 +115,9 @@ interface IConverterUpgrader {
     function upgrade(bytes32 _version) external;
     function upgrade(uint16 _version) external;
 }
+
 // --- END: IConverterUpgrader.sol ---
+
 // --- START: IBancorFormula.sol ---
 
 /*
@@ -152,8 +168,11 @@ interface IBancorFormula {
                              uint256 _reserveRateDenominator)
                              external view returns (uint32, uint32);
 }
+
 // --- END: IBancorFormula.sol ---
+
 // --- START: ContractRegistryClient.sol ---
+
 // --- START: Owned.sol ---
 
 /**
@@ -211,7 +230,9 @@ contract Owned is IOwned {
         newOwner = address(0);
     }
 }
+
 // --- END: Owned.sol ---
+
 // --- START: Utils.sol ---
 
 /**
@@ -251,7 +272,9 @@ contract Utils {
         require(_address != address(this), "ERR_ADDRESS_IS_SELF");
     }
 }
+
 // --- END: Utils.sol ---
+
 // --- START: IContractRegistry.sol ---
 
 /*
@@ -260,6 +283,7 @@ contract Utils {
 interface IContractRegistry {
     function addressOf(bytes32 _contractName) external view returns (address);
 }
+
 // --- END: IContractRegistry.sol ---
 
 /**
@@ -360,7 +384,9 @@ contract ContractRegistryClient is Owned, Utils {
         return registry.addressOf(_contractName);
     }
 }
+
 // --- END: ContractRegistryClient.sol ---
+
 // --- START: ReentrancyGuard.sol ---
 
 /**
@@ -391,7 +417,9 @@ contract ReentrancyGuard {
         require(!locked, "ERR_REENTRANCY");
     }
 }
+
 // --- END: ReentrancyGuard.sol ---
+
 // --- START: SafeMath.sol ---
 
 /**
@@ -457,7 +485,9 @@ library SafeMath {
         return c;
     }
 }
+
 // --- END: SafeMath.sol ---
+
 // --- START: TokenHandler.sol ---
 
 contract TokenHandler {
@@ -508,8 +538,11 @@ contract TokenHandler {
         require(success && (data.length == 0 || abi.decode(data, (bool))), 'ERR_TRANSFER_FROM_FAILED');
     }
 }
+
 // --- END: TokenHandler.sol ---
+
 // --- START: TokenHolder.sol ---
+
 // --- START: ITokenHolder.sol ---
 
 /*
@@ -518,6 +551,7 @@ contract TokenHandler {
 interface ITokenHolder is IOwned {
     function withdrawTokens(IERC20Token _token, address _to, uint256 _amount) external;
 }
+
 // --- END: ITokenHolder.sol ---
 
 /**
@@ -552,7 +586,9 @@ contract TokenHolder is ITokenHolder, TokenHandler, Owned, Utils {
         safeTransfer(_token, _to, _amount);
     }
 }
+
 // --- END: TokenHolder.sol ---
+
 // --- START: IEtherToken.sol ---
 
 /*
@@ -564,7 +600,9 @@ interface IEtherToken is IERC20Token {
     function depositTo(address _to) external payable;
     function withdrawTo(address payable _to, uint256 _amount) external;
 }
+
 // --- END: IEtherToken.sol ---
+
 // --- START: IBancorX.sol ---
 
 interface IBancorX {
@@ -572,6 +610,7 @@ interface IBancorX {
     function xTransfer(bytes32 _toBlockchain, bytes32 _to, uint256 _amount, uint256 _id) external;
     function getXTransferAmount(uint256 _xTransferId, address _for) external view returns (uint256);
 }
+
 // --- END: IBancorX.sol ---
 
 /**
@@ -1180,7 +1219,9 @@ abstract contract ConverterBase is IConverter, TokenHandler, TokenHolder, Contra
         return targetAmountAndFee(_sourceToken, _targetToken, _amount);
     }
 }
+
 // --- END: ConverterBase.sol ---
+
 // --- START: IDSToken.sol ---
 
 /*
@@ -1190,6 +1231,7 @@ interface IDSToken is IConverterAnchor, IERC20Token {
     function issue(address _to, uint256 _amount) external;
     function destroy(address _from, uint256 _amount) external;
 }
+
 // --- END: IDSToken.sol ---
 
 /**
@@ -1462,6 +1504,7 @@ contract LiquidTokenConverter is ConverterBase {
         return amount;
     }
 }
+
 // --- END: LiquidTokenConverter.sol ---
 
 /**
@@ -1627,4 +1670,5 @@ contract DynamicLiquidTokenConverter is LiquidTokenConverter {
         return reserveBalance(_reserveToken).mul(1e6).div(reserve.weight);
     }
 }
+
 // --- END: DynamicLiquidTokenConverter.sol ---

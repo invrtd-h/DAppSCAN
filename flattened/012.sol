@@ -1,6 +1,8 @@
+
 // --- START: SpaceMonkey.sol ---
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
+
 
 // --- START: IERC20.sol ---
 
@@ -14,7 +16,9 @@ interface IERC20 {
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
+
 // --- END: IERC20.sol ---
+
 // --- START: IERC223Recipient.sol ---
 
  /**
@@ -30,8 +34,11 @@ interface IERC223Recipient {
  * @param _data  Transaction metadata.
  */
     function tokenFallback(address _from, uint _value, bytes calldata _data) external;
-}// --- END: IERC223Recipient.sol ---
+}
+// --- END: IERC223Recipient.sol ---
+
 // --- START: SpaceMonkeyStorage.sol ---
+
 
 // --- START: Address.sol ---
 
@@ -61,8 +68,11 @@ library Address {
         return size > 0;
     }
 
-}// --- END: Address.sol ---
+}
+// --- END: Address.sol ---
+
 // --- START: Ownable.sol ---
+
 // --- START: Context.sol ---
 /*
  * @dev Provides information about the current execution context, including the
@@ -83,7 +93,8 @@ abstract contract Context {
         this; // silence state mutability warning without generating bytecode - see https://github.com/ethereum/solidity/issues/2691
         return msg.data;
     }
-}// --- END: Context.sol ---
+}
+// --- END: Context.sol ---
 
 contract Ownable is Context {
     address private _owner;
@@ -115,7 +126,9 @@ contract Ownable is Context {
         emit OwnershipTransferred(_owner, newOwner);
         _owner = newOwner;
     }
-}// --- END: Ownable.sol ---
+}
+// --- END: Ownable.sol ---
+
 // --- START: PCS.sol ---
 
 interface IPancakeRouter01 {
@@ -320,7 +333,8 @@ interface IPancakePair {
     function sync() external;
 
     function initialize(address, address) external;
-}// --- END: PCS.sol ---
+}
+// --- END: PCS.sol ---
 
 contract SpaceMonkeyStorage is Context, Ownable {
   using Address for address;
@@ -385,7 +399,8 @@ contract SpaceMonkeyStorage is Context, Ownable {
     inSwapAndLiquify = false;
   }
 
-}// --- END: SpaceMonkeyStorage.sol ---
+}
+// --- END: SpaceMonkeyStorage.sol ---
 
 contract SpaceMonkey is SpaceMonkeyStorage, IERC20 {
   using Address for address;
@@ -1065,4 +1080,5 @@ contract SpaceMonkey is SpaceMonkeyStorage, IERC20 {
 
   //to recieve ETH from pancakeswapV2Router when swaping
   receive() external payable {}
-}// --- END: SpaceMonkey.sol ---
+}
+// --- END: SpaceMonkey.sol ---

@@ -1,5 +1,7 @@
+
 // --- START: PRA.sol ---
 pragma solidity >=0.6.0;
+
 
 // --- START: SafeERC20.sol ---
 
@@ -389,6 +391,7 @@ library SafeERC20 {
         }
     }
 }
+
 // --- END: SafeERC20.sol ---
 
 
@@ -493,4 +496,5 @@ contract PRA {
         emit MonitorEvent(who, address(0), "unlock", abi.encodePacked(amount));
     }
 }
+
 // --- END: PRA.sol ---

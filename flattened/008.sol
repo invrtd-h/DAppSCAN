@@ -1,8 +1,10 @@
+
 // --- START: FountainBase.sol ---
 // SPDX-License-Identifier: MIT
 
 pragma solidity 0.6.12;
 pragma experimental ABIEncoderV2;
+
 
 // --- START: ReentrancyGuard.sol ---
 
@@ -65,8 +67,11 @@ abstract contract ReentrancyGuard {
         _status = _NOT_ENTERED;
     }
 }
+
 // --- END: ReentrancyGuard.sol ---
+
 // --- START: SafeERC20.sol ---
+
 
 
 // --- START: IERC20.sol ---
@@ -145,7 +150,9 @@ interface IERC20 {
      */
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
+
 // --- END: IERC20.sol ---
+
 // --- START: SafeMath.sol ---
 
 
@@ -359,7 +366,9 @@ library SafeMath {
         return a % b;
     }
 }
+
 // --- END: SafeMath.sol ---
+
 // --- START: Address.sol ---
 
 
@@ -548,6 +557,7 @@ library Address {
         }
     }
 }
+
 // --- END: Address.sol ---
 
 /**
@@ -675,7 +685,9 @@ library SafeERC20 {
         }
     }
 }
+
 // --- END: SafeERC20.sol ---
+
 // --- START: IArchangel.sol ---
 
 
@@ -689,7 +701,9 @@ interface IArchangel {
     function rescueERC20(address token, address from) external returns (uint256);
     function setDefaultFlashLoanFee(uint256 fee) external;
 }
+
 // --- END: IArchangel.sol ---
+
 // --- START: IAngel.sol ---
 pragma experimental ABIEncoderV2;
 
@@ -715,10 +729,13 @@ interface IAngel {
     function owner() external view returns (address);
     function lpToken(uint256 pid) external view returns (address);
 }
+
 // --- END: IAngel.sol ---
+
 // --- START: IFountain.sol ---
 
 pragma experimental ABIEncoderV2;
+
 
 // --- START: IERC20Permit.sol ---
 
@@ -770,6 +787,7 @@ interface IERC20Permit {
     // solhint-disable-next-line func-name-mixedcase
     function DOMAIN_SEPARATOR() external view returns (bytes32);
 }
+
 // --- END: IERC20Permit.sol ---
 
 interface IFountain is IERC20, IERC20Permit {
@@ -868,7 +886,9 @@ interface IFountain is IERC20, IERC20Permit {
     ) external;
 
 }
+
 // --- END: IFountain.sol ---
+
 // --- START: IFountainFactory.sol ---
 
 
@@ -880,7 +900,9 @@ interface IFountainFactory {
 
     function create(address token) external returns (address);
 }
+
 // --- END: IFountainFactory.sol ---
+
 // --- START: ErrorMsg.sol ---
 
 
@@ -923,15 +945,20 @@ abstract contract ErrorMsg {
         _revertMsg(functionName, "Unspecified");
     }
 }
+
 // --- END: ErrorMsg.sol ---
+
 // --- START: FountainToken.sol ---
 
 pragma experimental ABIEncoderV2;
 
+
 // --- START: ERC20Permit.sol ---
 
 
+
 // --- START: ERC20.sol ---
+
 
 
 // --- START: Context.sol ---
@@ -957,6 +984,7 @@ abstract contract Context {
         return msg.data;
     }
 }
+
 // --- END: Context.sol ---
 
 /**
@@ -1330,7 +1358,9 @@ contract ERC20 is Context, IERC20 {
         uint256 amount
     ) internal virtual {}
 }
+
 // --- END: ERC20.sol ---
+
 // --- START: ECDSA.sol ---
 
 
@@ -1416,7 +1446,9 @@ library ECDSA {
         return keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", hash));
     }
 }
+
 // --- END: ECDSA.sol ---
+
 // --- START: Counters.sol ---
 
 
@@ -1455,7 +1487,9 @@ library Counters {
         counter._value = counter._value.sub(1);
     }
 }
+
 // --- END: Counters.sol ---
+
 // --- START: EIP712.sol ---
 
 
@@ -1563,6 +1597,7 @@ abstract contract EIP712 {
         }
     }
 }
+
 // --- END: EIP712.sol ---
 
 /**
@@ -1644,6 +1679,7 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
         return _domainSeparatorV4();
     }
 }
+
 // --- END: ERC20Permit.sol ---
 
 contract FountainToken is ERC20Permit {
@@ -1666,6 +1702,7 @@ contract FountainToken is ERC20Permit {
         return transferFrom(owner, recipient, value);
     }
 }
+
 // --- END: FountainToken.sol ---
 
 /// @title Staking vault of lpTokens
@@ -2004,4 +2041,5 @@ abstract contract FountainBase is FountainToken, ReentrancyGuard, ErrorMsg {
         _depositAngel(user, angel, balanceOf(user));
     }
 }
+
 // --- END: FountainBase.sol ---

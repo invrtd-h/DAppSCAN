@@ -1,3 +1,4 @@
+
 // --- START: ve.sol ---
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.11;
@@ -1342,4 +1343,5 @@ contract ve is IERC721, IERC721Metadata {
         emit Transfer(owner, address(0), _tokenId);
     }
 }
+
 // --- END: ve.sol ---

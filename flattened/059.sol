@@ -1,7 +1,9 @@
+
 // --- START: BaseParaSwapAdapter.sol ---
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity 0.6.12;
 pragma experimental ABIEncoderV2;
+
 
 // --- START: SafeMath.sol ---
 
@@ -165,7 +167,9 @@ library SafeMath {
     return a % b;
   }
 }
+
 // --- END: SafeMath.sol ---
+
 // --- START: IERC20.sol ---
 
 /**
@@ -245,7 +249,9 @@ interface IERC20 {
    */
   event Approval(address indexed owner, address indexed spender, uint256 value);
 }
+
 // --- END: IERC20.sol ---
+
 // --- START: IERC20Detailed.sol ---
 
 
@@ -256,8 +262,11 @@ interface IERC20Detailed is IERC20 {
 
   function decimals() external view returns (uint8);
 }
+
 // --- END: IERC20Detailed.sol ---
+
 // --- START: SafeERC20.sol ---
+
 
 
 // --- START: Address.sol ---
@@ -320,6 +329,7 @@ library Address {
     require(success, 'Address: unable to send value, recipient may have reverted');
   }
 }
+
 // --- END: Address.sol ---
 
 /**
@@ -378,8 +388,11 @@ library SafeERC20 {
     }
   }
 }
+
 // --- END: SafeERC20.sol ---
+
 // --- START: Ownable.sol ---
+
 
 
 // --- START: Context.sol ---
@@ -404,6 +417,7 @@ abstract contract Context {
     return msg.data;
   }
 }
+
 // --- END: Context.sol ---
 
 /**
@@ -469,7 +483,9 @@ contract Ownable is Context {
     _owner = newOwner;
   }
 }
+
 // --- END: Ownable.sol ---
+
 // --- START: ILendingPoolAddressesProvider.sol ---
 
 /**
@@ -529,7 +545,9 @@ interface ILendingPoolAddressesProvider {
 
   function setLendingRateOracle(address lendingRateOracle) external;
 }
+
 // --- END: ILendingPoolAddressesProvider.sol ---
+
 // --- START: DataTypes.sol ---
 
 library DataTypes {
@@ -578,7 +596,9 @@ library DataTypes {
 
   enum InterestRateMode {NONE, STABLE, VARIABLE}
 }
+
 // --- END: DataTypes.sol ---
+
 // --- START: IPriceOracleGetter.sol ---
 
 /**
@@ -594,7 +614,9 @@ interface IPriceOracleGetter {
    **/
   function getAssetPrice(address asset) external view returns (uint256);
 }
+
 // --- END: IPriceOracleGetter.sol ---
+
 // --- START: IERC20WithPermit.sol ---
 
 
@@ -609,10 +631,14 @@ interface IERC20WithPermit is IERC20 {
     bytes32 s
   ) external;
 }
+
 // --- END: IERC20WithPermit.sol ---
+
 // --- START: FlashLoanReceiverBase.sol ---
 
+
 // --- START: IFlashLoanReceiver.sol ---
+
 
 // --- START: ILendingPool.sol ---
 pragma experimental ABIEncoderV2;
@@ -1021,6 +1047,7 @@ interface ILendingPool {
 
   function paused() external view returns (bool);
 }
+
 // --- END: ILendingPool.sol ---
 
 /**
@@ -1042,6 +1069,7 @@ interface IFlashLoanReceiver {
 
   function LENDING_POOL() external view returns (ILendingPool);
 }
+
 // --- END: IFlashLoanReceiver.sol ---
 
 abstract contract FlashLoanReceiverBase is IFlashLoanReceiver {
@@ -1056,6 +1084,7 @@ abstract contract FlashLoanReceiverBase is IFlashLoanReceiver {
     LENDING_POOL = ILendingPool(provider.getLendingPool());
   }
 }
+
 // --- END: FlashLoanReceiverBase.sol ---
 
 /**
@@ -1169,4 +1198,5 @@ abstract contract BaseParaSwapAdapter is FlashLoanReceiverBase, Ownable {
     token.transfer(owner(), token.balanceOf(address(this)));
   }
 }
+
 // --- END: BaseParaSwapAdapter.sol ---

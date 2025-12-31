@@ -2,6 +2,20 @@ import os
 import re
 import sys
 
+
+def get_version(source_code) -> str | None:
+    pattern = re.compile(r'^\s*pragma\s+solidity\s+([^;]+)\s*;', re.MULTILINE)
+    
+    match = pattern.search(source_code)
+    
+    if match:
+        # 캡처된 그룹(버전 명)의 앞뒤 공백을 제거하고 리턴
+        ret: str = match.group(1).strip()
+        ret = ret.replace("^", "").replace("=", "").replace(">", "").replace("<", "")
+        return ret
+    return None
+
+
 class SolidityFlattener:
     def __init__(self):
         # prevent duplicated imports
@@ -12,13 +26,16 @@ class SolidityFlattener:
         self.license_pattern = re.compile(r'^\s*//\s*SPDX-License-Identifier:')
 
     def flatten(self, input_file_path):
+        with open(input_file_path, 'r', encoding='utf-8') as f:
+            source_code = f.read()
+        version = get_version(source_code)
         abs_path = os.path.abspath(input_file_path)
         if not os.path.exists(abs_path):
             raise FileNotFoundError(f"File not found: {input_file_path}")
 
-        return self._process_file(abs_path, is_root=True)
+        return self._process_file(abs_path, version, is_root=True)
 
-    def _process_file(self, file_path, is_root=False):
+    def _process_file(self, file_path, version, is_root=False):
         if file_path in self.processed_files:
             return ""
 
@@ -26,6 +43,11 @@ class SolidityFlattener:
         
         content = []
         base_dir = os.path.dirname(file_path)
+        
+        if "@openzeppelin" in file_path:
+            if version >= "0.8.0":
+                print(version)
+                exit(1)
 
         if "@openzeppelin" in file_path:
             raise FileNotFoundError("@openzeppelin")
@@ -33,14 +55,14 @@ class SolidityFlattener:
             with open(file_path, 'r', encoding='utf-8') as f:
                 lines = f.readlines()
 
-        content.append(f"// --- START: {os.path.basename(file_path)} ---\n")
+        content.append(f"\n// --- START: {os.path.basename(file_path)} ---\n")
 
         for line in lines:
             import_match = self.import_pattern.search(line)
             if import_match:
                 rel_path = import_match.group(1)
                 imported_file_path = os.path.abspath(os.path.join(base_dir, rel_path))
-                flattened_import = self._process_file(imported_file_path, is_root=False)
+                flattened_import = self._process_file(imported_file_path, version, is_root=False)
                 content.append(flattened_import)
                 continue
             if not is_root:
@@ -48,7 +70,7 @@ class SolidityFlattener:
                     continue
             content.append(line)
 
-        content.append(f"// --- END: {os.path.basename(file_path)} ---\n")
+        content.append(f"\n// --- END: {os.path.basename(file_path)} ---\n")
         return "".join(content)
 
 if __name__ == "__main__":

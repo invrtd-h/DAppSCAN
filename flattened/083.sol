@@ -1,8 +1,13 @@
+
 // --- START: GnosisSafe.sol ---
 pragma solidity ^0.5.0;
+
 // --- START: BaseSafe.sol ---
+
 // --- START: Module.sol ---
+
 // --- START: MasterCopy.sol ---
+
 // --- START: SelfAuthorized.sol ---
 
 
@@ -14,6 +19,7 @@ contract SelfAuthorized {
         _;
     }
 }
+
 // --- END: SelfAuthorized.sol ---
 
 
@@ -35,8 +41,11 @@ contract MasterCopy is SelfAuthorized {
         masterCopy = _masterCopy;
     }
 }
+
 // --- END: MasterCopy.sol ---
+
 // --- START: ModuleManager.sol ---
+
 // --- START: Enum.sol ---
 
 
@@ -49,8 +58,11 @@ contract Enum {
         Create
     }
 }
+
 // --- END: Enum.sol ---
+
 // --- START: Executor.sol ---
+
 // --- START: EtherPaymentFallback.sol ---
 
 
@@ -66,6 +78,7 @@ contract EtherPaymentFallback {
 
     }
 }
+
 // --- END: EtherPaymentFallback.sol ---
 
 
@@ -120,6 +133,7 @@ contract Executor is EtherPaymentFallback {
         }
     }
 }
+
 // --- END: Executor.sol ---
 
 
@@ -219,6 +233,7 @@ contract ModuleManager is SelfAuthorized, Executor {
         return array;
     }
 }
+
 // --- END: ModuleManager.sol ---
 
 
@@ -243,7 +258,9 @@ contract Module is MasterCopy {
         manager = ModuleManager(msg.sender);
     }
 }
+
 // --- END: Module.sol ---
+
 // --- START: OwnerManager.sol ---
 
 /// @title OwnerManager - Manages a set of owners and a threshold to perform actions.
@@ -412,6 +429,7 @@ contract OwnerManager is SelfAuthorized {
         return array;
     }
 }
+
 // --- END: OwnerManager.sol ---
 
 
@@ -433,7 +451,9 @@ contract BaseSafe is ModuleManager, OwnerManager {
         setupModules(to, data);
     }
 }
+
 // --- END: BaseSafe.sol ---
+
 // --- START: SignatureDecoder.sol ---
 
 
@@ -487,7 +507,9 @@ contract SignatureDecoder {
         }
     }
 }
+
 // --- END: SignatureDecoder.sol ---
+
 // --- START: SecuredTokenTransfer.sol ---
 
 
@@ -520,7 +542,9 @@ contract SecuredTokenTransfer {
         }
     }
 }
+
 // --- END: SecuredTokenTransfer.sol ---
+
 // --- START: ISignatureValidator.sol ---
 
 contract ISignatureValidator {
@@ -537,7 +561,9 @@ contract ISignatureValidator {
         bytes calldata _signature)
         external
         returns (bool isValid); 
-}// --- END: ISignatureValidator.sol ---
+}
+// --- END: ISignatureValidator.sol ---
+
 // --- START: SafeMath.sol ---
 
 /**
@@ -603,7 +629,8 @@ library SafeMath {
     require(b != 0);
     return a % b;
   }
-}// --- END: SafeMath.sol ---
+}
+// --- END: SafeMath.sol ---
 
 /// @title Gnosis Safe - A multisignature wallet with support for confirmations using signed messages based on ERC191.
 /// @author Stefan George - <stefan@gnosis.pm>
@@ -936,4 +963,5 @@ contract GnosisSafe is MasterCopy, BaseSafe, SignatureDecoder, SecuredTokenTrans
         return keccak256(encodeTransactionData(to, value, data, operation, safeTxGas, dataGas, gasPrice, gasToken, refundReceiver, _nonce));
     }
 }
+
 // --- END: GnosisSafe.sol ---

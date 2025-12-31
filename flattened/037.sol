@@ -1,3 +1,4 @@
+
 // --- START: code.sol ---
 /**
  *Submitted for verification at BscScan.com on 2021-06-08
@@ -1090,4 +1091,5 @@ contract FatAnimalToken is BEP20('FatAnimal Token', 'FAT') {
         assembly { chainId := chainid() }
         return chainId;
     }
-}// --- END: code.sol ---
+}
+// --- END: code.sol ---

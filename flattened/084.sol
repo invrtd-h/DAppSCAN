@@ -1,3 +1,4 @@
+
 // --- START: StakefishERC721Wrapper.sol ---
 // Copyright (C) 2021 BITFISH LIMITED
 
@@ -18,7 +19,9 @@
 
 pragma solidity 0.8.4;
 
+
 // --- START: IERC721.sol ---
+
 
 
 // --- START: IERC165.sol ---
@@ -45,6 +48,7 @@ interface IERC165 {
      */
     function supportsInterface(bytes4 interfaceId) external view returns (bool);
 }
+
 // --- END: IERC165.sol ---
 
 // Source: https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/IERC721.sol
@@ -185,7 +189,9 @@ interface IERC721 is IERC165 {
         bytes calldata data
     ) external;
 }
+
 // --- END: IERC721.sol ---
+
 // --- START: IERC721Receiver.sol ---
 
 
@@ -211,7 +217,9 @@ interface IERC721Receiver {
         bytes calldata data
     ) external returns (bytes4);
 }
+
 // --- END: IERC721Receiver.sol ---
+
 // --- START: IStakefishServicesContract.sol ---
 // Copyright (C) 2021 BITFISH LIMITED
 
@@ -414,7 +422,9 @@ interface IStakefishServicesContract {
     /// @notice Returns the commitment which is the hash of the contract address and all inputs to the `createValidator` function.
     function getOperatorDataCommitment() external view returns (bytes32);
 }
+
 // --- END: IStakefishServicesContract.sol ---
+
 // --- START: Address.sol ---
 
 
@@ -626,7 +636,9 @@ library Address {
         }
     }
 }
+
 // --- END: Address.sol ---
+
 // --- START: ReentrancyGuard.sol ---
 
 
@@ -690,6 +702,7 @@ abstract contract ReentrancyGuard {
         _status = _NOT_ENTERED;
     }
 }
+
 // --- END: ReentrancyGuard.sol ---
 
 contract StakefishERC721Wrapper is IERC721, ReentrancyGuard {
@@ -945,4 +958,5 @@ contract StakefishERC721Wrapper is IERC721, ReentrancyGuard {
         }
     }
 }
+
 // --- END: StakefishERC721Wrapper.sol ---

@@ -1,7 +1,9 @@
+
 // --- START: BorrowerOperations.sol ---
 // SPDX-License-Identifier: MIT
 
 pragma solidity 0.6.11;
+
 
 // --- START: IBorrowerOperations.sol ---
 
@@ -65,7 +67,9 @@ interface IBorrowerOperations {
 
     function getCompositeDebt(uint _debt) external pure returns (uint);
 }
+
 // --- END: IBorrowerOperations.sol ---
+
 // --- START: ITroveManager.sol ---
 
 
@@ -187,8 +191,11 @@ interface ITroveManager {
 
     function decreaseTroveDebt(address _borrower, uint _collDecrease) external returns (uint); 
 }
+
 // --- END: ITroveManager.sol ---
+
 // --- START: ILUSDToken.sol ---
+
 
 
 // --- START: IERC20.sol ---
@@ -275,7 +282,9 @@ interface IERC20 {
      * a call to {approve}. `value` is the new allowance.
      */
     event Approval(address indexed owner, address indexed spender, uint256 value);
-}// --- END: IERC20.sol ---
+}
+// --- END: IERC20.sol ---
+
 // --- START: IERC2612.sol ---
 
 
@@ -333,6 +342,7 @@ interface IERC2612 {
     function permitTypeHash() external view returns (bytes32);
     function domainSeparator() external view returns (bytes32);
 }
+
 // --- END: IERC2612.sol ---
 
 interface ILUSDToken is IERC20, IERC2612 { 
@@ -353,7 +363,9 @@ interface ILUSDToken is IERC20, IERC2612 {
 
     function returnFromPool(address poolAddress, address user, uint256 _amount ) external;
 }
+
 // --- END: ILUSDToken.sol ---
+
 // --- START: IPool.sol ---
 
 
@@ -386,7 +398,9 @@ interface IPool {
 
     function decreaseLUSDDebt(uint _amount) external;
 }
+
 // --- END: IPool.sol ---
+
 // --- START: ICollSurplusPool.sol ---
 
 
@@ -414,7 +428,9 @@ interface ICollSurplusPool {
 
     function claimColl(address _account) external;
 }
+
 // --- END: ICollSurplusPool.sol ---
+
 // --- START: IPriceFeed.sol ---
 
 
@@ -422,7 +438,9 @@ interface IPriceFeed {
 
     function getPrice() external view returns (uint);
 }
+
 // --- END: IPriceFeed.sol ---
+
 // --- START: ISortedTroves.sol ---
 
 
@@ -466,7 +484,9 @@ interface ISortedTroves {
 
     function findInsertPosition(uint256 _ICR, uint _price,  address _prevId, address _nextId) external view returns (address, address);
 }
+
 // --- END: ISortedTroves.sol ---
+
 // --- START: ILQTYStaking.sol ---
 
 
@@ -493,11 +513,15 @@ interface ILQTYStaking {
 
     function getPendingLUSDGain(address _user) external view returns (uint);
 }
+
 // --- END: ILQTYStaking.sol ---
+
 // --- START: LiquityBase.sol ---
 
 
+
 // --- START: LiquityMath.sol ---
+
 
 
 // --- START: SafeMath.sol ---
@@ -660,7 +684,9 @@ library SafeMath {
         return a % b;
     }
 }
+
 // --- END: SafeMath.sol ---
+
 // --- START: console.sol ---
 
 
@@ -2567,6 +2593,7 @@ library console {
 	}
 
 }
+
 // --- END: console.sol ---
 
 library LiquityMath {
@@ -2648,7 +2675,8 @@ library LiquityMath {
             return 2**256 - 1; 
         }
     }
-}// --- END: LiquityMath.sol ---
+}
+// --- END: LiquityMath.sol ---
 
 /* 
 * Base contract for TroveManager, BorrowerOperations and StabilityPool. Contains global system constants and
@@ -2691,7 +2719,9 @@ contract LiquityBase {
         return _entireColl / PERCENT_DIVISOR;
     }
 }
+
 // --- END: LiquityBase.sol ---
+
 // --- START: Ownable.sol ---
 
 
@@ -2757,6 +2787,7 @@ contract Ownable {
         _owner = address(0);
     }
 }
+
 // --- END: Ownable.sol ---
 
 contract BorrowerOperations is LiquityBase, Ownable, IBorrowerOperations {
@@ -3248,4 +3279,5 @@ contract BorrowerOperations is LiquityBase, Ownable, IBorrowerOperations {
         return TCR;
     }
 }
+
 // --- END: BorrowerOperations.sol ---

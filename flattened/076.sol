@@ -1,3 +1,4 @@
+
 // --- START: MiniDOGE.sol ---
 /**
  *Submitted for verification at BscScan.com on 2021-07-02
@@ -1195,4 +1196,5 @@ contract MiniDOGE is Context, IERC20, Ownable {
         _addressFees[_address]._sellLiquidityFee = _addressLiquidityFee;
     }
     
-}// --- END: MiniDOGE.sol ---
+}
+// --- END: MiniDOGE.sol ---

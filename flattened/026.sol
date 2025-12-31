@@ -1,8 +1,11 @@
+
 // --- START: FlashLoanLogic.sol ---
 // SPDX-License-Identifier: agpl-3.0
 pragma solidity 0.8.7;
 
+
 // --- START: SafeERC20.sol ---
+
 
 
 // --- START: IERC20.sol ---
@@ -84,7 +87,9 @@ interface IERC20 {
    */
   event Approval(address indexed owner, address indexed spender, uint256 value);
 }
+
 // --- END: IERC20.sol ---
+
 // --- START: Address.sol ---
 
 /**
@@ -145,6 +150,7 @@ library Address {
     require(success, 'Address: unable to send value, recipient may have reverted');
   }
 }
+
 // --- END: Address.sol ---
 
 /**
@@ -202,8 +208,11 @@ library SafeERC20 {
     }
   }
 }
+
 // --- END: SafeERC20.sol ---
+
 // --- START: IAToken.sol ---
+
 
 // --- START: IScaledBalanceToken.sol ---
 
@@ -242,10 +251,14 @@ interface IScaledBalanceToken {
    **/
   function getPreviousIndex(address user) external view returns (uint256);
 }
+
 // --- END: IScaledBalanceToken.sol ---
+
 // --- START: IInitializableAToken.sol ---
 
+
 // --- START: IPool.sol ---
+
 
 // --- START: IPoolAddressesProvider.sol ---
 
@@ -382,7 +395,9 @@ interface IPoolAddressesProvider {
    */
   function getPoolDataProvider() external view returns (address);
 }
+
 // --- END: IPoolAddressesProvider.sol ---
+
 // --- START: DataTypes.sol ---
 
 library DataTypes {
@@ -624,6 +639,7 @@ library DataTypes {
     address aToken;
   }
 }
+
 // --- END: DataTypes.sol ---
 
 /**
@@ -1323,7 +1339,9 @@ interface IPool {
     uint16 referralCode
   ) external;
 }
+
 // --- END: IPool.sol ---
+
 // --- START: IAaveIncentivesController.sol ---
 
 /**
@@ -1479,6 +1497,7 @@ interface IAaveIncentivesController {
    */
   function PRECISION() external view returns (uint8);
 }
+
 // --- END: IAaveIncentivesController.sol ---
 
 /**
@@ -1529,6 +1548,7 @@ interface IInitializableAToken {
     bytes calldata params
   ) external;
 }
+
 // --- END: IInitializableAToken.sol ---
 
 /**
@@ -1657,7 +1677,9 @@ interface IAToken is IERC20, IScaledBalanceToken, IInitializableAToken {
    **/
   function RESERVE_TREASURY_ADDRESS() external view returns (address);
 }
+
 // --- END: IAToken.sol ---
+
 // --- START: IFlashLoanReceiver.sol ---
 
 
@@ -1691,7 +1713,9 @@ interface IFlashLoanReceiver {
 
   function POOL() external view returns (IPool);
 }
+
 // --- END: IFlashLoanReceiver.sol ---
+
 // --- START: IFlashLoanSimpleReceiver.sol ---
 
 
@@ -1725,8 +1749,11 @@ interface IFlashLoanSimpleReceiver {
 
   function POOL() external view returns (IPool);
 }
+
 // --- END: IFlashLoanSimpleReceiver.sol ---
+
 // --- START: UserConfiguration.sol ---
+
 
 // --- START: Errors.sol ---
 
@@ -1849,7 +1876,9 @@ library Errors {
   string public constant SL_USER_IN_ISOLATION_MODE = '109';
   string public constant PC_BRIDGE_PROTOCOL_FEE_INVALID = '110';
 }
+
 // --- END: Errors.sol ---
+
 // --- START: ReserveConfiguration.sol ---
 
 
@@ -2409,6 +2438,7 @@ library ReserveConfiguration {
     );
   }
 }
+
 // --- END: ReserveConfiguration.sol ---
 
 /**
@@ -2618,7 +2648,9 @@ library UserConfiguration {
     }
   }
 }
+
 // --- END: UserConfiguration.sol ---
+
 // --- START: Helpers.sol ---
 
 
@@ -2668,7 +2700,9 @@ library Helpers {
     return uint128(input);
   }
 }
+
 // --- END: Helpers.sol ---
+
 // --- START: WadRayMath.sol ---
 
 
@@ -2806,7 +2840,9 @@ library WadRayMath {
     }
   }
 }
+
 // --- END: WadRayMath.sol ---
+
 // --- START: PercentageMath.sol ---
 
 
@@ -2861,8 +2897,11 @@ library PercentageMath {
     }
   }
 }
+
 // --- END: PercentageMath.sol ---
+
 // --- START: ValidationLogic.sol ---
+
 
 // --- START: IReserveInterestRateStrategy.sol ---
 
@@ -2898,8 +2937,11 @@ interface IReserveInterestRateStrategy {
       uint256
     );
 }
+
 // --- END: IReserveInterestRateStrategy.sol ---
+
 // --- START: IVariableDebtToken.sol ---
+
 
 // --- START: IInitializableDebtToken.sol ---
 
@@ -2948,6 +2990,7 @@ interface IInitializableDebtToken {
     bytes calldata params
   ) external;
 }
+
 // --- END: IInitializableDebtToken.sol ---
 
 /**
@@ -3003,7 +3046,9 @@ interface IVariableDebtToken is IScaledBalanceToken, IInitializableDebtToken {
     uint256 index
   ) external returns (uint256);
 }
+
 // --- END: IVariableDebtToken.sol ---
+
 // --- START: IStableDebtToken.sol ---
 
 
@@ -3147,7 +3192,9 @@ interface IStableDebtToken is IInitializableDebtToken {
    **/
   function principalBalanceOf(address user) external view returns (uint256);
 }
+
 // --- END: IStableDebtToken.sol ---
+
 // --- START: IPriceOracleGetter.sol ---
 
 /**
@@ -3175,7 +3222,9 @@ interface IPriceOracleGetter {
    **/
   function getAssetPrice(address asset) external view returns (uint256);
 }
+
 // --- END: IPriceOracleGetter.sol ---
+
 // --- START: IPriceOracleSentinel.sol ---
 
 /**
@@ -3198,8 +3247,11 @@ interface IPriceOracleSentinel {
    */
   function isLiquidationAllowed() external view returns (bool);
 }
+
 // --- END: IPriceOracleSentinel.sol ---
+
 // --- START: ReserveLogic.sol ---
+
 
 // --- START: MathUtils.sol ---
 
@@ -3299,6 +3351,7 @@ library MathUtils {
     return calculateCompoundedInterest(rate, lastUpdateTimestamp, block.timestamp);
   }
 }
+
 // --- END: MathUtils.sol ---
 
 /**
@@ -3645,7 +3698,9 @@ library ReserveLogic {
     return reserveCache;
   }
 }
+
 // --- END: ReserveLogic.sol ---
+
 // --- START: GenericLogic.sol ---
 
 
@@ -3879,6 +3934,7 @@ library GenericLogic {
     return availableBorrowsInBaseCurrency;
   }
 }
+
 // --- END: GenericLogic.sol ---
 
 /**
@@ -4545,7 +4601,9 @@ library ValidationLogic {
     }
   }
 }
+
 // --- END: ValidationLogic.sol ---
+
 // --- START: BorrowLogic.sol ---
 
 
@@ -4849,6 +4907,7 @@ library BorrowLogic {
     emit Swap(asset, msg.sender, rateMode);
   }
 }
+
 // --- END: BorrowLogic.sol ---
 
 /**
@@ -5071,4 +5130,5 @@ library FlashLoanLogic {
     );
   }
 }
+
 // --- END: FlashLoanLogic.sol ---

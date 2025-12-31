@@ -1,8 +1,11 @@
+
 // --- START: Comptroller.sol ---
 // SPDX-License-Identifier: BSD-3-Clause
 pragma solidity ^0.8.6;
 
+
 // --- START: CToken.sol ---
+
 
 // --- START: ComptrollerInterface.sol ---
 
@@ -75,8 +78,11 @@ abstract contract ComptrollerInterface {
         address cTokenCollateral,
         uint repayAmount) virtual external view returns (uint, uint);
 }
+
 // --- END: ComptrollerInterface.sol ---
+
 // --- START: CTokenInterfaces.sol ---
+
 
 // --- START: InterestRateModel.sol ---
 
@@ -107,7 +113,9 @@ abstract contract InterestRateModel {
       */
     function getSupplyRate(uint cash, uint borrows, uint reserves, uint reserveFactorMantissa) virtual external view returns (uint);
 }
+
 // --- END: InterestRateModel.sol ---
+
 // --- START: EIP20NonStandardInterface.sol ---
 
 /**
@@ -178,7 +186,9 @@ interface EIP20NonStandardInterface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20NonStandardInterface.sol ---
+
 // --- START: ErrorReporter.sol ---
 
 contract ComptrollerErrorReporter {
@@ -315,6 +325,7 @@ contract TokenErrorReporter {
     error SetInterestRateModelOwnerCheck();
     error SetInterestRateModelFreshCheck();
 }
+
 // --- END: ErrorReporter.sol ---
 
 contract CTokenStorage {
@@ -602,7 +613,9 @@ abstract contract CDelegateInterface is CDelegationStorage {
      */
     function _resignImplementation() virtual external;
 }
+
 // --- END: CTokenInterfaces.sol ---
+
 // --- START: EIP20Interface.sol ---
 
 /**
@@ -665,7 +678,9 @@ interface EIP20Interface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20Interface.sol ---
+
 // --- START: ExponentialNoError.sol ---
 
 /**
@@ -836,6 +851,7 @@ contract ExponentialNoError {
         return Double({mantissa: div_(mul_(a, doubleScale), b)});
     }
 }
+
 // --- END: ExponentialNoError.sol ---
 
 /**
@@ -2029,7 +2045,9 @@ abstract contract CToken is CTokenInterface, ExponentialNoError, TokenErrorRepor
         _notEntered = true; // get a gas-refund post-Istanbul
     }
 }
+
 // --- END: CToken.sol ---
+
 // --- START: PriceOracle.sol ---
 
 
@@ -2045,7 +2063,9 @@ abstract contract PriceOracle {
       */
     function getUnderlyingPrice(CToken cToken) virtual external view returns (uint);
 }
+
 // --- END: PriceOracle.sol ---
+
 // --- START: ComptrollerStorage.sol ---
 
 
@@ -2187,7 +2207,9 @@ contract ComptrollerV5Storage is ComptrollerV4Storage {
     /// @notice Last block at which a contributor's COMP rewards have been allocated
     mapping(address => uint) public lastContributorBlock;
 }
+
 // --- END: ComptrollerStorage.sol ---
+
 // --- START: Unitroller.sol ---
 
 /**
@@ -2334,7 +2356,9 @@ contract Unitroller is UnitrollerAdminStorage, ComptrollerErrorReporter {
         }
     }
 }
+
 // --- END: Unitroller.sol ---
+
 // --- START: Comp.sol ---
 
 contract Comp {
@@ -2635,6 +2659,7 @@ contract Comp {
         return chainId;
     }
 }
+
 // --- END: Comp.sol ---
 
 /**
@@ -3984,4 +4009,5 @@ contract Comptroller is ComptrollerV5Storage, ComptrollerInterface, ComptrollerE
         return 0xc00e94Cb662C3520282E6f5717214004A7f26888;
     }
 }
+
 // --- END: Comptroller.sol ---

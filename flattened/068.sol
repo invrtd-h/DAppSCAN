@@ -1,7 +1,10 @@
+
 // --- START: CCapableErc20.sol ---
 pragma solidity ^0.5.16;
 
+
 // --- START: CToken.sol ---
+
 
 // --- START: ComptrollerInterface.sol ---
 
@@ -74,8 +77,11 @@ contract ComptrollerInterface {
         address cTokenCollateral,
         uint repayAmount) external view returns (uint, uint);
 }
+
 // --- END: ComptrollerInterface.sol ---
+
 // --- START: CTokenInterfaces.sol ---
+
 
 // --- START: InterestRateModel.sol ---
 
@@ -107,6 +113,7 @@ contract InterestRateModel {
     function getSupplyRate(uint cash, uint borrows, uint reserves, uint reserveFactorMantissa) external view returns (uint);
 
 }
+
 // --- END: InterestRateModel.sol ---
 
 contract CTokenStorage {
@@ -444,7 +451,9 @@ contract CCapableDelegateInterface is CDelegationStorageExtension {
      */
     function _resignImplementation() public;
 }
+
 // --- END: CTokenInterfaces.sol ---
+
 // --- START: ErrorReporter.sol ---
 
 contract ComptrollerErrorReporter {
@@ -628,8 +637,11 @@ contract TokenErrorReporter {
         return uint(err);
     }
 }
+
 // --- END: ErrorReporter.sol ---
+
 // --- START: Exponential.sol ---
+
 
 // --- START: CarefulMath.sol ---
 
@@ -715,7 +727,8 @@ contract CarefulMath {
 
         return subUInt(sum, c);
     }
-}// --- END: CarefulMath.sol ---
+}
+// --- END: CarefulMath.sol ---
 
 /**
  * @title Exponential module for storing fixed-precision decimals
@@ -1097,7 +1110,9 @@ contract Exponential is CarefulMath {
         return Double({mantissa: div_(mul_(a, doubleScale), b)});
     }
 }
+
 // --- END: Exponential.sol ---
+
 // --- START: EIP20Interface.sol ---
 
 /**
@@ -1160,7 +1175,9 @@ interface EIP20Interface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20Interface.sol ---
+
 // --- START: EIP20NonStandardInterface.sol ---
 
 /**
@@ -1231,6 +1248,7 @@ interface EIP20NonStandardInterface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20NonStandardInterface.sol ---
 
 /**
@@ -2507,6 +2525,7 @@ contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
         _notEntered = true; // get a gas-refund post-Istanbul
     }
 }
+
 // --- END: CToken.sol ---
 
 interface IFlashloanReceiver {
@@ -2762,4 +2781,5 @@ contract CCapableErc20 is CToken, CCapableErc20Interface, CCapableDelegateInterf
         emit Flashloan(receiver, amount, totalFee, reservesFee);
     }
 }
+
 // --- END: CCapableErc20.sol ---

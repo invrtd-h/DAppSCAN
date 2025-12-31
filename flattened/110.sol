@@ -1,3 +1,4 @@
+
 // --- START: ARCToken.sol ---
 /**
  * Overflow aware uint math functions.
@@ -372,4 +373,5 @@ contract ARCToken is StandardToken, SafeMath {
         buyRecipient(msg.sender);
     }
 
-}// --- END: ARCToken.sol ---
+}
+// --- END: ARCToken.sol ---

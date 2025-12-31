@@ -1,6 +1,8 @@
+
 // --- START: CToken.sol ---
 // SPDX-License-Identifier: BSD-3-Clause
 pragma solidity ^0.8.6;
+
 
 // --- START: ComptrollerInterface.sol ---
 
@@ -73,8 +75,11 @@ abstract contract ComptrollerInterface {
         address cTokenCollateral,
         uint repayAmount) virtual external view returns (uint, uint);
 }
+
 // --- END: ComptrollerInterface.sol ---
+
 // --- START: CTokenInterfaces.sol ---
+
 
 // --- START: InterestRateModel.sol ---
 
@@ -105,7 +110,9 @@ abstract contract InterestRateModel {
       */
     function getSupplyRate(uint cash, uint borrows, uint reserves, uint reserveFactorMantissa) virtual external view returns (uint);
 }
+
 // --- END: InterestRateModel.sol ---
+
 // --- START: EIP20NonStandardInterface.sol ---
 
 /**
@@ -176,7 +183,9 @@ interface EIP20NonStandardInterface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20NonStandardInterface.sol ---
+
 // --- START: ErrorReporter.sol ---
 
 contract ComptrollerErrorReporter {
@@ -313,6 +322,7 @@ contract TokenErrorReporter {
     error SetInterestRateModelOwnerCheck();
     error SetInterestRateModelFreshCheck();
 }
+
 // --- END: ErrorReporter.sol ---
 
 contract CTokenStorage {
@@ -600,7 +610,9 @@ abstract contract CDelegateInterface is CDelegationStorage {
      */
     function _resignImplementation() virtual external;
 }
+
 // --- END: CTokenInterfaces.sol ---
+
 // --- START: EIP20Interface.sol ---
 
 /**
@@ -663,7 +675,9 @@ interface EIP20Interface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20Interface.sol ---
+
 // --- START: ExponentialNoError.sol ---
 
 /**
@@ -834,6 +848,7 @@ contract ExponentialNoError {
         return Double({mantissa: div_(mul_(a, doubleScale), b)});
     }
 }
+
 // --- END: ExponentialNoError.sol ---
 
 /**
@@ -2027,4 +2042,5 @@ abstract contract CToken is CTokenInterface, ExponentialNoError, TokenErrorRepor
         _notEntered = true; // get a gas-refund post-Istanbul
     }
 }
+
 // --- END: CToken.sol ---

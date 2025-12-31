@@ -1,3 +1,4 @@
+
 // --- START: Controller.sol ---
 /**
  * SPDX-License-Identifier: UNLICENSED
@@ -6,10 +7,13 @@ pragma solidity =0.6.10;
 
 pragma experimental ABIEncoderV2;
 
+
 // --- START: OwnableUpgradeSafe.sol ---
+
 
 // --- START: ContextUpgradeSafe.sol ---
 /* solhint-disable */
+
 // --- START: Initializable.sol ---
 /* solhint-disable */
 
@@ -73,6 +77,7 @@ contract Initializable {
     // Reserved storage space to allow for layout changes in the future.
     uint256[50] private ______gap;
 }
+
 // --- END: Initializable.sol ---
 
 /*
@@ -106,6 +111,7 @@ contract ContextUpgradeSafe is Initializable {
 
     uint256[50] private __gap;
 }
+
 // --- END: ContextUpgradeSafe.sol ---
 
 /**
@@ -178,7 +184,9 @@ contract OwnableUpgradeSafe is Initializable, ContextUpgradeSafe {
 
     uint256[49] private __gap;
 }
+
 // --- END: OwnableUpgradeSafe.sol ---
+
 // --- START: ReentrancyGuardUpgradeSafe.sol ---
 
 
@@ -238,7 +246,9 @@ contract ReentrancyGuardUpgradeSafe is Initializable {
 
     uint256[49] private __gap;
 }
+
 // --- END: ReentrancyGuardUpgradeSafe.sol ---
+
 // --- START: SafeMath.sol ---
 /* solhint-disable */
 
@@ -402,7 +412,9 @@ library SafeMath {
         return a % b;
     }
 }
+
 // --- END: SafeMath.sol ---
+
 // --- START: MarginVault.sol ---
 /**
  * SPDX-License-Identifier: UNLICENSED
@@ -610,7 +622,9 @@ library MarginVault {
         }
     }
 }
+
 // --- END: MarginVault.sol ---
+
 // --- START: Actions.sol ---
 /**
  * SPDX-License-Identifier: UNLICENSED
@@ -905,7 +919,9 @@ library Actions {
             });
     }
 }
+
 // --- END: Actions.sol ---
+
 // --- START: AddressBookInterface.sol ---
 
 interface AddressBookInterface {
@@ -949,7 +965,9 @@ interface AddressBookInterface {
 
     function setAddress(bytes32 _id, address _newImpl) external;
 }
+
 // --- END: AddressBookInterface.sol ---
+
 // --- START: OtokenInterface.sol ---
 
 interface OtokenInterface {
@@ -979,7 +997,9 @@ interface OtokenInterface {
 
     function burnOtoken(address account, uint256 amount) external;
 }
+
 // --- END: OtokenInterface.sol ---
+
 // --- START: MarginCalculatorInterface.sol ---
 
 pragma experimental ABIEncoderV2;
@@ -993,7 +1013,9 @@ interface MarginCalculatorInterface {
         view
         returns (uint256 netValue, bool isExcess);
 }
+
 // --- END: MarginCalculatorInterface.sol ---
+
 // --- START: OracleInterface.sol ---
 
 interface OracleInterface {
@@ -1031,7 +1053,9 @@ interface OracleInterface {
         uint256 _price
     ) external;
 }
+
 // --- END: OracleInterface.sol ---
+
 // --- START: WhitelistInterface.sol ---
 
 interface WhitelistInterface {
@@ -1061,7 +1085,9 @@ interface WhitelistInterface {
 
     function isWhitelistedCallee(address _callee) external view returns (bool);
 }
+
 // --- END: WhitelistInterface.sol ---
+
 // --- START: MarginPoolInterface.sol ---
 
 interface MarginPoolInterface {
@@ -1089,7 +1115,9 @@ interface MarginPoolInterface {
         uint256[] calldata _amount
     ) external;
 }
+
 // --- END: MarginPoolInterface.sol ---
+
 // --- START: CalleeInterface.sol ---
 /**
  * SPDX-License-Identifier: UNLICENSED
@@ -1113,6 +1141,7 @@ interface CalleeInterface {
         bytes memory _data
     ) external payable;
 }
+
 // --- END: CalleeInterface.sol ---
 
 /**
@@ -1909,4 +1938,5 @@ contract Controller is Initializable, OwnableUpgradeSafe, ReentrancyGuardUpgrade
         pool = MarginPoolInterface(addressbook.getMarginPool());
     }
 }
+
 // --- END: Controller.sol ---

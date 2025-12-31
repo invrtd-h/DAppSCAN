@@ -1,5 +1,7 @@
+
 // --- START: RToken.sol ---
 pragma solidity ^0.5.16;
+
 
 // --- START: CointrollerInterface.sol ---
 
@@ -72,8 +74,11 @@ contract CointrollerInterface {
         address rTokenCollateral,
         uint repayAmount) external view returns (uint, uint);
 }
+
 // --- END: CointrollerInterface.sol ---
+
 // --- START: RTokenInterfaces.sol ---
+
 
 // --- START: InterestRateModel.sol ---
 
@@ -105,7 +110,9 @@ contract InterestRateModel {
     function getSupplyRate(uint cash, uint borrows, uint reserves, uint reserveFactorMantissa) external view returns (uint);
 
 }
+
 // --- END: InterestRateModel.sol ---
+
 // --- START: EIP20NonStandardInterface.sol ---
 
 /**
@@ -176,6 +183,7 @@ interface EIP20NonStandardInterface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20NonStandardInterface.sol ---
 
 contract RTokenStorage {
@@ -476,7 +484,9 @@ contract RDelegateInterface is RDelegationStorage {
      */
     function _resignImplementation() public;
 }
+
 // --- END: RTokenInterfaces.sol ---
+
 // --- START: ErrorReporter.sol ---
 
 contract CointrollerErrorReporter {
@@ -683,8 +693,11 @@ contract TokenErrorReporter {
 
         return uint(err);
     }
-}// --- END: ErrorReporter.sol ---
+}
+// --- END: ErrorReporter.sol ---
+
 // --- START: Exponential.sol ---
+
 
 // --- START: CarefulMath.sol ---
 
@@ -770,7 +783,9 @@ contract CarefulMath {
 
         return subUInt(sum, c);
     }
-}// --- END: CarefulMath.sol ---
+}
+// --- END: CarefulMath.sol ---
+
 // --- START: ExponentialNoError.sol ---
 
 /**
@@ -966,6 +981,7 @@ contract ExponentialNoError {
         return Double({mantissa: div_(mul_(a, doubleScale), b)});
     }
 }
+
 // --- END: ExponentialNoError.sol ---
 
 /**
@@ -1146,7 +1162,9 @@ contract Exponential is CarefulMath, ExponentialNoError {
         return getExp(a.mantissa, b.mantissa);
     }
 }
+
 // --- END: Exponential.sol ---
+
 // --- START: EIP20Interface.sol ---
 
 /**
@@ -1209,6 +1227,7 @@ interface EIP20Interface {
     event Transfer(address indexed from, address indexed to, uint256 amount);
     event Approval(address indexed owner, address indexed spender, uint256 amount);
 }
+
 // --- END: EIP20Interface.sol ---
 
 /**
@@ -2636,4 +2655,5 @@ contract RToken is RTokenInterface, Exponential, TokenErrorReporter {
         _notEntered = true; // get a gas-refund post-Istanbul
     }
 }
+
 // --- END: RToken.sol ---

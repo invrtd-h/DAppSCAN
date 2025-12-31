@@ -1,3 +1,4 @@
+
 // --- START: ImpossibleWrappedToken.sol ---
 // SPDX-License-Identifier: GPL-3
 // Copyright (C) 2015, 2016, 2017 Dapphub
@@ -17,6 +18,7 @@
 
 pragma solidity =0.7.6;
 
+
 // --- START: IImpossibleWrappedToken.sol ---
 // Copyright (C) 2015, 2016, 2017 Dapphub
 
@@ -32,6 +34,7 @@ pragma solidity =0.7.6;
 
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 
 
 // --- START: IERC20.sol ---
@@ -62,6 +65,7 @@ interface IERC20 {
         uint256 value
     ) external returns (bool);
 }
+
 // --- END: IERC20.sol ---
 
 interface IImpossibleWrappedToken is IERC20 {
@@ -749,7 +753,9 @@ Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 
 */
+
 // --- END: IImpossibleWrappedToken.sol ---
+
 // --- START: SafeMath.sol ---
 
 // a library for performing overflow-safe math, courtesy of DappHub (https://github.com/dapphub/ds-math)
@@ -807,6 +813,7 @@ library SafeMath {
         return c;
     }
 }
+
 // --- END: SafeMath.sol ---
 
 contract ImpossibleWrappedToken is IImpossibleWrappedToken {
@@ -1605,4 +1612,5 @@ Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
 
 */
+
 // --- END: ImpossibleWrappedToken.sol ---

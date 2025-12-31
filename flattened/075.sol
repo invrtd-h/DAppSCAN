@@ -1,3 +1,4 @@
+
 // --- START: StakingRewardsV3-1.sol ---
 /**
  *Submitted for verification at Etherscan.io on 2021-09-13
@@ -364,4 +365,5 @@ contract StakingRewardsV3 {
         require(success && (data.length == 0 || abi.decode(data, (bool))));
     }
 }
+
 // --- END: StakingRewardsV3-1.sol ---

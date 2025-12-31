@@ -1,3 +1,4 @@
+
 // --- START: bVault.sol ---
 /**
  *Submitted for verification at Etherscan.io on 2020-12-02
@@ -452,4 +453,5 @@ contract bVault is ERC20, ERC20Detailed {
         require(msg.sender == governance, "!governance");
         RestrictContractCall = enabled;
     }
-}// --- END: bVault.sol ---
+}
+// --- END: bVault.sol ---

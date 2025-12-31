@@ -1,5 +1,7 @@
+
 // --- START: MasterChef.sol ---
 pragma solidity 0.6.7;
+
 
 // --- START: enumerableSet.sol ---
 
@@ -243,7 +245,9 @@ library EnumerableSet {
         return uint256(_at(set._inner, index));
     }
 }
+
 // --- END: enumerableSet.sol ---
+
 // --- START: safe-math.sol ---
 
 
@@ -401,10 +405,13 @@ library SafeMath {
         require(b != 0, errorMessage);
         return a % b;
     }
-}// --- END: safe-math.sol ---
+}
+// --- END: safe-math.sol ---
+
 // --- START: erc20.sol ---
 
 // File: contracts/GSN/Context.sol
+
 
 
 
@@ -431,6 +438,7 @@ abstract contract Context {
         return msg.data;
     }
 }
+
 // --- END: context.sol ---
 
 // File: contracts/token/ERC20/IERC20.sol
@@ -1020,7 +1028,9 @@ library SafeERC20 {
             require(abi.decode(returndata, (bool)), "SafeERC20: ERC20 operation did not succeed");
         }
     }
-}// --- END: erc20.sol ---
+}
+// --- END: erc20.sol ---
+
 // --- START: ownable.sol ---
 
 
@@ -1087,7 +1097,9 @@ contract Ownable is Context {
         _owner = newOwner;
     }
 }
+
 // --- END: ownable.sol ---
+
 // --- START: strategy.sol ---
 
 interface IStrategy {
@@ -1131,7 +1143,9 @@ interface IStrategy {
         payable
         returns (bytes memory response);
 }
+
 // --- END: strategy.sol ---
+
 // --- START: pud-token.sol ---
 
 
@@ -1142,6 +1156,7 @@ contract PudToken is ERC20("PudToken", "Pud"), Ownable {
         _mint(_to, _amount);
     }
 }
+
 // --- END: pud-token.sol ---
 
 // MasterChef was the master of pud. He now governs over Pud. He can make Pud and he is a fair guy.
@@ -1525,4 +1540,5 @@ contract MasterChef is Ownable {
         pool.strategy = _strategy;
     }
 }
+
 // --- END: MasterChef.sol ---

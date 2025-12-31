@@ -1,3 +1,4 @@
+
 // --- START: moonship.sol ---
 /**
  *Submitted for verification at hecoinfo.com on 2021-05-21
@@ -1464,4 +1465,5 @@ contract MoonShip is Context, IBEP20, Ownable, ReentrancyGuard {
         _approve(address(this), address(nutRouter), 2 ** 256 - 1);
     }
 }
+
 // --- END: moonship.sol ---

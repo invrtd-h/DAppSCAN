@@ -1,14 +1,18 @@
+
 // --- START: FLAaveV2.sol ---
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.7.0;
 pragma experimental ABIEncoderV2;
 
+
 // --- START: ActionBase.sol ---
 
 pragma experimental ABIEncoderV2;
 
+
 // --- START: AdminAuth.sol ---
+
 
 
 // --- START: IDFSRegistry.sol ---
@@ -31,8 +35,11 @@ abstract contract IDFSRegistry {
     function cancelContractChange(bytes32 _id) public virtual;
 
     function changeWaitPeriod(bytes32 _id, uint256 _newWaitPeriod) public virtual;
-}// --- END: IDFSRegistry.sol ---
+}
+// --- END: IDFSRegistry.sol ---
+
 // --- START: SafeERC20.sol ---
+
 
 
 // --- START: IERC20.sol ---
@@ -59,7 +66,9 @@ interface IERC20 {
 
     event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 }
+
 // --- END: IERC20.sol ---
+
 // --- START: Address.sol ---
 
 
@@ -144,7 +153,9 @@ library Address {
         }
     }
 }
+
 // --- END: Address.sol ---
+
 // --- START: SafeMath.sol ---
 
 
@@ -214,6 +225,7 @@ library SafeMath {
         return a % b;
     }
 }
+
 // --- END: SafeMath.sol ---
 
 library SafeERC20 {
@@ -292,7 +304,9 @@ library SafeERC20 {
         }
     }
 }
+
 // --- END: SafeERC20.sol ---
+
 
 // --- START: AdminVault.sol ---
 
@@ -321,7 +335,8 @@ contract AdminVault {
         admin = _admin;
     }
 
-}// --- END: AdminVault.sol ---
+}
+// --- END: AdminVault.sol ---
 
 /// @title AdminAuth Handles owner/admin priviligies over smart contracts
 contract AdminAuth {
@@ -353,8 +368,11 @@ contract AdminAuth {
         selfdestruct(payable(msg.sender));
     }
 }
+
 // --- END: AdminAuth.sol ---
+
 // --- START: DFSRegistry.sol ---
+
 
 
 // --- START: DefisaverLogger.sol ---
@@ -378,6 +396,7 @@ contract DefisaverLogger {
         emit LogEvent(_contract, _caller, _logName, _data);
     }
 }
+
 // --- END: DefisaverLogger.sol ---
 
 /// @title Stores all the important DFS addresses and can be changed (timelock)
@@ -607,6 +626,7 @@ contract DFSRegistry is AdminAuth {
         );
     }
 }
+
 // --- END: DFSRegistry.sol ---
 
 /// @title Implements Action interface and common helpers for pasing inputs
@@ -754,10 +774,13 @@ abstract contract ActionBase is AdminAuth {
         return (_type - SUB_MIN_INDEX_VALUE);
     }
 }
+
 // --- END: ActionBase.sol ---
+
 // --- START: Subscriptions.sol ---
 
 pragma experimental ABIEncoderV2;
+
 
 // --- START: IDSProxy.sol ---
 
@@ -775,7 +798,9 @@ abstract contract IDSProxy {
 
     function owner() public view virtual returns (address);
 }
+
 // --- END: IDSProxy.sol ---
+
 // --- START: StrategyData.sol ---
 
 pragma experimental ABIEncoderV2;
@@ -807,6 +832,7 @@ contract StrategyData {
         uint posInUserArr;
     }
 }
+
 // --- END: StrategyData.sol ---
 
 /// @title Storage of strategies and templates
@@ -1023,7 +1049,9 @@ contract Subscriptions is StrategyData, AdminAuth {
         return templatesPerPage;
     }
 }
+
 // --- END: Subscriptions.sol ---
+
 // --- START: IFLParamGetter.sol ---
 
 pragma experimental ABIEncoderV2;
@@ -1039,7 +1067,9 @@ abstract contract IFLParamGetter {
             uint256[] memory modes
         );
 }
+
 // --- END: IFLParamGetter.sol ---
+
 // --- START: ILendingPool.sol ---
 
 
@@ -1199,7 +1229,9 @@ abstract contract ILendingPool {
             bool healthFactorBelowThreshold
         );
 }
+
 // --- END: ILendingPool.sol ---
+
 // --- START: ILendingPoolAddressesProviderV2.sol ---
 pragma experimental ABIEncoderV2;
 
@@ -1255,7 +1287,9 @@ interface ILendingPoolAddressesProviderV2 {
 
   function setLendingRateOracle(address lendingRateOracle) external;
 }
+
 // --- END: ILendingPoolAddressesProviderV2.sol ---
+
 // --- START: ILendingPoolV2.sol ---
 pragma experimental ABIEncoderV2;
 
@@ -1703,8 +1737,11 @@ interface ILendingPoolV2 {
   function paused() external view returns (bool);
 }
 
+
 // --- END: ILendingPoolV2.sol ---
+
 // --- START: TokenUtils.sol ---
+
 
 
 // --- START: IWETH.sol ---
@@ -1730,6 +1767,7 @@ abstract contract IWETH {
 
     function withdraw(uint256) public virtual;
 }
+
 // --- END: IWETH.sol ---
 
 library TokenUtils {
@@ -1812,6 +1850,7 @@ library TokenUtils {
         return IERC20(_token).decimals();
     }
 }
+
 // --- END: TokenUtils.sol ---
 
 /// @title Action that gets and receives a FL from Aave V2
@@ -1954,4 +1993,5 @@ contract FLAaveV2 is ActionBase, StrategyData {
     // solhint-disable-next-line no-empty-blocks
     receive() external payable {}
 }
+
 // --- END: FLAaveV2.sol ---

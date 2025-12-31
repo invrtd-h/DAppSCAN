@@ -1,3 +1,4 @@
+
 // --- START: wHakka.sol ---
 pragma solidity 0.5.17;
 
@@ -599,4 +600,5 @@ contract wHakka is Ownable, ERC20Mintable{
         _TokenAddress.safeTransfer(msg.sender, _amount);
     }
 
-}// --- END: wHakka.sol ---
+}
+// --- END: wHakka.sol ---

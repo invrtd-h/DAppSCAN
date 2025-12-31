@@ -1,5 +1,7 @@
+
 // --- START: CFVault.sol ---
 pragma solidity >=0.4.21 <0.6.0;
+
 
 // --- START: Ownable.sol ---
 
@@ -49,7 +51,9 @@ contract Ownable {
         _contract_owner = newOwner;
     }
 }
+
 // --- END: Ownable.sol ---
+
 // --- START: SafeMath.sol ---
 
 library SafeMath {
@@ -78,7 +82,9 @@ library SafeMath {
         c = a / b;
     }
 }
+
 // --- END: SafeMath.sol ---
+
 // --- START: Address.sol ---
 
 library Address {
@@ -100,7 +106,9 @@ library Address {
         require(success, "Address: unable to send value, recipient may have reverted");
     }
 }
+
 // --- END: Address.sol ---
+
 // --- START: ReentrancyGuard.sol ---
 
 contract ReentrancyGuard {
@@ -117,9 +125,13 @@ contract ReentrancyGuard {
         require(localCounter == _guardCounter, "ReentrancyGuard: reentrant call");
     }
 }
+
 // --- END: ReentrancyGuard.sol ---
+
 // --- START: TransferableToken.sol ---
+
 // --- START: SafeERC20.sol ---
+
 
 // --- START: IERC20.sol ---
 
@@ -133,6 +145,7 @@ interface IERC20 {
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
+
 // --- END: IERC20.sol ---
 
 library SafeERC20 {
@@ -176,6 +189,7 @@ library SafeERC20 {
         }
     }
 }
+
 // --- END: SafeERC20.sol ---
 
 contract TransferableTokenHelper{
@@ -210,8 +224,11 @@ library TransferableToken{
     }
   }
 }
+
 // --- END: TransferableToken.sol ---
+
 // --- START: ERC20Impl.sol ---
+
 // --- START: AddressArray.sol ---
 
 library AddressArray{
@@ -242,6 +259,7 @@ library AddressArray{
     return true;
   }
 }
+
 // --- END: AddressArray.sol ---
 
 contract ApproveAndCallFallBack {
@@ -639,7 +657,9 @@ contract ERC20Base {
         //require(false, "cannot transfer ether to this contract");
     //}
 }
+
 // --- END: ERC20Impl.sol ---
+
 // --- START: IPool.sol ---
 
 contract ICurvePool{
@@ -654,6 +674,7 @@ contract ICurvePool{
 
   string public name;
 }
+
 
 // --- END: IPool.sol ---
 
@@ -850,4 +871,5 @@ contract CFVaultV2Factory{
   }
 
 }
+
 // --- END: CFVault.sol ---

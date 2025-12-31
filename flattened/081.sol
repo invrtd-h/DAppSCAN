@@ -1,6 +1,8 @@
+
 // --- START: YVaultAssetProxy.sol ---
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.0;
+
 
 // --- START: IERC20.sol ---
 
@@ -36,7 +38,9 @@ interface IERC20 {
         uint256 value
     );
 }
+
 // --- END: IERC20.sol ---
+
 // --- START: IYearnVaultV2.sol ---
 
 
@@ -60,8 +64,11 @@ interface IYearnVault is IERC20 {
 
     function totalAssets() external view returns (uint256);
 }
+
 // --- END: IYearnVaultV2.sol ---
+
 // --- START: WrappedPosition.sol ---
+
 
 // --- START: IWETH.sol ---
 
@@ -74,8 +81,11 @@ interface IWETH is IERC20 {
     event Deposit(address indexed dst, uint256 wad);
     event Withdrawal(address indexed src, uint256 wad);
 }
+
 // --- END: IWETH.sol ---
+
 // --- START: IWrappedPosition.sol ---
+
 
 // --- START: IERC20Permit.sol ---
 // Forked from openzepplin
@@ -137,6 +147,7 @@ interface IERC20Permit is IERC20 {
     // solhint-disable-next-line func-name-mixedcase
     function DOMAIN_SEPARATOR() external view returns (bytes32);
 }
+
 // --- END: IERC20Permit.sol ---
 
 interface IWrappedPosition is IERC20Permit {
@@ -171,7 +182,9 @@ interface IWrappedPosition is IERC20Permit {
             uint256
         );
 }
+
 // --- END: IWrappedPosition.sol ---
+
 
 // --- START: ERC20.sol ---
 
@@ -314,6 +327,7 @@ abstract contract ERC20 is IERC20Permit {
         }
     }
 }
+
 // --- END: ERC20.sol ---
 
 /// @author Element Finance
@@ -492,6 +506,7 @@ abstract contract WrappedPosition is ERC20, IWrappedPosition {
         return withdrawAmount;
     }
 }
+
 // --- END: WrappedPosition.sol ---
 
 /// @author Element Finance
@@ -713,4 +728,5 @@ contract YVaultAssetProxy is WrappedPosition {
         reserveShares = uint128(_newReserveShares);
     }
 }
+
 // --- END: YVaultAssetProxy.sol ---

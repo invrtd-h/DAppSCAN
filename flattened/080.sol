@@ -1,8 +1,11 @@
+
 // --- START: Main.sol ---
 // SWC-102-Outdated Compiler Version: L2
 pragma solidity ^0.4.21;
 
+
 // --- START: Voting.sol ---
+
 
 // --- START: CoalichainToken.sol ---
 
@@ -461,7 +464,9 @@ contract CoalichainToken is StandardToken, BurnableToken, Ownable {
         Transfer(msg.sender, address(0x0), _value);
     }
 }
+
 // --- END: CoalichainToken.sol ---
+
 // --- START: Types.sol ---
 library Types{
     enum Service {
@@ -471,6 +476,7 @@ library Types{
       CHANGE_VOTE
     }
 }
+
 // --- END: Types.sol ---
 
 contract Voting {
@@ -606,6 +612,7 @@ contract Voting {
         return false;
     }
 }
+
 // --- END: Voting.sol ---
 
 contract Main{
@@ -712,4 +719,5 @@ contract Main{
 
 
 }
+
 // --- END: Main.sol ---

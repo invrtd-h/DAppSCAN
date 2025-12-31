@@ -1,6 +1,8 @@
+
 // --- START: MasterShiba.sol ---
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
+
 
 // --- START: SafeMath.sol ---
 
@@ -190,7 +192,9 @@ library SafeMath {
         }
     }
 }
+
 // --- END: SafeMath.sol ---
+
 // --- START: IBEP20.sol ---
 
 
@@ -288,8 +292,11 @@ interface IBEP20 {
      */
     event Approval(address indexed owner, address indexed spender, uint256 value);
 }
+
 // --- END: IBEP20.sol ---
+
 // --- START: SafeBEP20.sol ---
+
 
 
 // --- START: Address.sol ---
@@ -452,6 +459,7 @@ library Address {
         }
     }
 }
+
 // --- END: Address.sol ---
 
 /**
@@ -546,8 +554,11 @@ library SafeBEP20 {
             require(abi.decode(returndata, (bool)), 'SafeBEP20: BEP20 operation did not succeed');
         }
     }
-}// --- END: SafeBEP20.sol ---
+}
+// --- END: SafeBEP20.sol ---
+
 // --- START: Ownable.sol ---
+
 
 
 // --- START: Context.sol ---
@@ -577,6 +588,7 @@ contract Context {
         return msg.data;
     }
 }
+
 // --- END: Context.sol ---
 
 /**
@@ -649,9 +661,12 @@ contract Ownable is Context {
         _owner = newOwner;
     }
 }
+
 // --- END: Ownable.sol ---
 
+
 // --- START: ShibaBonusAggregator.sol ---
+
 
 
 // --- START: IMasterBonus.sol ---
@@ -660,12 +675,15 @@ contract Ownable is Context {
 interface IMasterBonus {
     function updateUserBonus(address _user, uint256 _pid, uint256 bonus) external;
 }
+
 // --- END: IMasterBonus.sol ---
+
 // --- START: IBonusAggregator.sol ---
 
 interface IBonusAggregator {
     function getBonusOnFarmsForUser(address _user, uint256 _pid) external view returns (uint256);
 }
+
 // --- END: IBonusAggregator.sol ---
 
 /*
@@ -716,7 +734,9 @@ contract ShibaBonusAggregator is Ownable, IBonusAggregator{
     }
 
 }
+
 // --- END: ShibaBonusAggregator.sol ---
+
 // --- START: ShibaBEP20.sol ---
 
 
@@ -1012,6 +1032,7 @@ contract ShibaBEP20 is Context, IBEP20, Ownable {
         );
     }
 }
+
 // --- END: ShibaBEP20.sol ---
 
 // MasterShiba is the master of Nova and sNova.
@@ -1418,4 +1439,5 @@ contract MasterShiba is Ownable, IMasterBonus {
     }
 
 }
+
 // --- END: MasterShiba.sol ---

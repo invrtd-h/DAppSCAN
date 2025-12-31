@@ -1,3 +1,4 @@
+
 // --- START: Fundraiser.sol ---
 // SWC-101-Integer Overflow and Underflow: L9-L133
 // SWC-102-Outdated Compiler Version: L9-L133
@@ -132,4 +133,5 @@ contract Fundraiser {
         suicide(treasury);
     }
 }
+
 // --- END: Fundraiser.sol ---
