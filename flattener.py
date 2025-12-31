@@ -9,7 +9,6 @@ def get_version(source_code) -> str | None:
     match = pattern.search(source_code)
     
     if match:
-        # 캡처된 그룹(버전 명)의 앞뒤 공백을 제거하고 리턴
         ret: str = match.group(1).strip()
         ret = ret.replace("^", "").replace("=", "").replace(">", "").replace("<", "")
         return ret
@@ -36,6 +35,12 @@ class SolidityFlattener:
         return self._process_file(abs_path, version, is_root=True)
 
     def _process_file(self, file_path, version, is_root=False):
+        if "@openzeppelin" in file_path:
+            if version >= "0.8.10":
+                file_path = os.path.abspath("./openzeppelin-contracts") + file_path.split("@openzeppelin")[1]
+            elif version >= "0.6.0" and version <= "0.7.6":
+                file_path = os.path.abspath("./openzeppelin-contracts-3.4.0") + file_path.split("@openzeppelin")[1]
+        
         if file_path in self.processed_files:
             return ""
 
@@ -43,10 +48,6 @@ class SolidityFlattener:
         
         content = []
         base_dir = os.path.dirname(file_path)
-        
-        if "@openzeppelin" in file_path:
-            if version >= "0.8.10":
-                file_path = os.path.abspath("./openzeppelin-contracts") + file_path.split("@openzeppelin")[1]
 
         if "@openzeppelin" in file_path:
             raise FileNotFoundError("@openzeppelin")
