@@ -3,14 +3,16 @@
 pragma solidity 0.8.4;
 
 import {Context} from "@openzeppelin/contracts/utils/Context.sol";
-import {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+// original: imp-ort {UUPSUpgradeable} from "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+import {UUPSUpgradeable} from "@openzeppelin/contracts/proxy/utils/UUPSUpgradeable.sol";
+import "@openzeppelin/contracts/proxy/utils/Initializable.sol";
 
 import {IKODAV3Minter} from "../core/IKODAV3Minter.sol";
 import {IKODAV3PrimarySaleMarketplace, IKODAV3GatedMarketplace} from "../marketplace/IKODAV3Marketplace.sol";
 import {ICollabRoyaltiesRegistry} from "../collab/ICollabRoyaltiesRegistry.sol";
 import {IKOAccessControlsLookup} from "../access/IKOAccessControlsLookup.sol";
 
-contract MintingFactoryV2 is Context, UUPSUpgradeable {
+contract MintingFactoryV2 is Context, Initializable, UUPSUpgradeable {
 
     event EditionMinted(uint256 indexed _editionId);
     event EditionMintedAndListed(uint256 indexed _editionId, SaleType _saleType);

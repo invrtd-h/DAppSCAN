@@ -34,7 +34,7 @@ class SolidityFlattener:
 
         return self._process_file(abs_path, version, is_root=True)
 
-    def _process_file(self, file_path, version, is_root=False):
+    def _process_file(self, file_path, version, is_root=False) -> str:
         if "@openzeppelin" in file_path:
             version = [int(x) for x in version.split('.')]
             if version >= [0, 8, 0] and version <= [0, 8, 10]:
