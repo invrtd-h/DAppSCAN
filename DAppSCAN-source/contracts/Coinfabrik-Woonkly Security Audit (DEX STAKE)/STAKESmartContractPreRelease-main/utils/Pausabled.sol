@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.6;
 
-import "./../contracts/access/Ownable.sol";
+// original: imp-ort "./../contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Pausabled is Ownable{
 

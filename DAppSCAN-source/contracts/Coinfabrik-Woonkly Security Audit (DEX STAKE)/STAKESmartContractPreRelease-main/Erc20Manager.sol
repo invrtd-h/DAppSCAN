@@ -1,9 +1,13 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.6;
 
-import "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/math/SafeMath.sol";
-import "https://github.com/Woonkly/MartinHSolUtils/Utils.sol";
-import "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/GSN/Context.sol";
+// original: imp-ort "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/math/SafeMath.sol";
+// original: imp-ort "https://github.com/Woonkly/MartinHSolUtils/Utils.sol";
+// original: imp-ort "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/GSN/Context.sol";
+
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/GSN/Context.sol";
+import "./utils/Utils.sol";
 
 /**
 MIT License

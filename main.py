@@ -47,7 +47,9 @@ def flatten():
     df = pd.read_csv('reentrant-contract.csv', dtype=np.object_)
     for i in df.index:
         flattened_filename = str(df.loc[i, "id"]) + ".sol"
-        os.system(f'''uv run ./flattener.py "{df.loc[i, "loc"]}" "./flattened/{flattened_filename}"''')
+        code = os.system(f'''uv run ./flattener.py "{df.loc[i, "loc"]}" "./flattened/{flattened_filename}"''')
+        if code != 0:
+            exit(code)
             
 
 def main():

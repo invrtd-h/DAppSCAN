@@ -11,7 +11,7 @@ pragma solidity ^0.8.4;
 // SWC-135-Code With No Effects: L12 - L13
 import "@openzeppelin/contracts/token/ERC1155/presets/ERC1155PresetMinterPauser.sol";
 import "@openzeppelin/contracts/token/ERC20/presets/ERC20PresetMinterPauser.sol";
-import "hardhat/console.sol";
+// original: imp-ort "hardhat/console.sol";
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";

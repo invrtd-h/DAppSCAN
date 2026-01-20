@@ -1,15 +1,25 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.6;
 
-import "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/math/SafeMath.sol";
-import "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/token/ERC20/ERC20.sol";
-import "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/utils/ReentrancyGuard.sol";
-import "https://github.com/Woonkly/MartinHSolUtils/Utils.sol";
-import "https://github.com/Woonkly/STAKESmartContractPreRelease/Pausabled.sol";
-import "https://github.com/Woonkly/STAKESmartContractPreRelease/Erc20Manager.sol";
-import "https://github.com/Woonkly/STAKESmartContractPreRelease/StakeManager.sol";
-import "https://github.com/Woonkly/STAKESmartContractPreRelease/IWStaked.sol";
-import "https://github.com/Woonkly/STAKESmartContractPreRelease/IInvestiable.sol";
+// original: imp-ort "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/math/SafeMath.sol";
+// original: imp-ort "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/token/ERC20/ERC20.sol"
+// original: imp-ort "https://github.com/Woonkly/OpenZeppelinBaseContracts/contracts/utils/ReentrancyGuard.sol";
+// original: imp-ort "https://github.com/Woonkly/MartinHSolUtils/Utils.sol";
+// original: imp-ort "https://github.com/Woonkly/STAKESmartContractPreRelease/Pausabled.sol";
+// original: imp-ort "https://github.com/Woonkly/STAKESmartContractPreRelease/Erc20Manager.sol";
+// original: imp-ort "https://github.com/Woonkly/STAKESmartContractPreRelease/StakeManager.sol";
+// original: imp-ort "https://github.com/Woonkly/STAKESmartContractPreRelease/IWStaked.sol";
+// original: imp-ort "https://github.com/Woonkly/STAKESmartContractPreRelease/IInvestiable.sol";
+
+import "@openzeppelin/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
+import "./utils/Utils.sol";
+import "./utils/Pausabled.sol";
+import "./Erc20Manager.sol";
+import "./StakeManager.sol";
+import "./IWStaked.sol";
+import "./IInvestiable.sol";
 
 /**
 MIT License

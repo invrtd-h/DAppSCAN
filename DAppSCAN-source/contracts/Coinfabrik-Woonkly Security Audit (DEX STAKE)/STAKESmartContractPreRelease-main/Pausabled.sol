@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.6.6;
 
-import "https://github.com/Woonkly/MartinHSolUtils/Owners.sol";
+// original: imp-ort "https://github.com/Woonkly/MartinHSolUtils/Owners.sol";
+import "./utils/Owners.sol";
 
 /**
 MIT License
