@@ -46,7 +46,7 @@ def get_reentrant_contracts():
 def flatten():
     df = pd.read_csv('reentrant-contract.csv', dtype=np.object_)
     for i in df.index:
-        if i + 1 in [18, 21, 22, 23, 24, 30, 31]:
+        if i + 1 in [18, 21, 22, 23, 24, 30, 31, 39, 45, 53]:
             continue
         flattened_filename = str(df.loc[i, "id"]) + ".sol"
         code = os.system(f'''uv run ./flattener.py "{df.loc[i, "loc"]}" "./flattened/{flattened_filename}"''')

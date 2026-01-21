@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.10 <0.8.0;
 
 /// @notice Amounts of Token M, A and B are sometimes stored in a `uint256[3]` array. This contract
 ///         defines index of each tranche in this array.

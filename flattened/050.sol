@@ -1,7 +1,8 @@
 
 // --- START: StakingV2.sol ---
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.10 <0.8.0;
+
+pragma solidity 0.6.12;
 pragma experimental ABIEncoderV2;
 
 
@@ -835,7 +836,6 @@ abstract contract ManagedPausable {
 
 
 // --- START: IFund.sol ---
-pragma experimental ABIEncoderV2;
 
 
 // --- START: ITwapOracle.sol ---
@@ -1109,7 +1109,6 @@ interface IPrimaryMarket {
 // --- END: IPrimaryMarket.sol ---
 
 // --- START: IVotingEscrow.sol ---
-pragma experimental ABIEncoderV2;
 
 interface IVotingEscrow {
     struct LockedBalance {

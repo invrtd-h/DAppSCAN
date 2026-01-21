@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.10 <0.8.0;
 
 /// @notice A maker order
 /// @param prev Index of the previous order at the same premium-discount level,

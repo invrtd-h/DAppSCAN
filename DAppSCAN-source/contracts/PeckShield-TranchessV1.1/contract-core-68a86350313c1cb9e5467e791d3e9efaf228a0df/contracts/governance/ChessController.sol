@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.10 <0.8.0;
 
 contract ChessController {
     /// @notice Get Fund relative weight (not more than 1.0) normalized to 1e18
