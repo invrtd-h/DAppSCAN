@@ -527,7 +527,7 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 // --- END: ERC20.sol ---
 
 // --- START: ILendingPool.sol ---
-pragma experimental ABIEncoderV2;
+// original: pragma experimental ABIEncoderV2;
 
 
 // --- START: ILendingPoolAddressesProvider.sol ---
@@ -1084,15 +1084,15 @@ interface ILendingPool {
 
 // --- START: IAaveIncentivesController.sol ---
 
-pragma experimental ABIEncoderV2;
+// original: pragma experimental ABIEncoderV2;
 
 
 // --- START: IAaveDistributionManager.sol ---
-pragma experimental ABIEncoderV2;
+// original: pragma experimental ABIEncoderV2;
 
 
 // --- START: DistributionTypes.sol ---
-pragma experimental ABIEncoderV2;
+// original: pragma experimental ABIEncoderV2;
 
 library DistributionTypes {
     struct AssetConfigInput {
