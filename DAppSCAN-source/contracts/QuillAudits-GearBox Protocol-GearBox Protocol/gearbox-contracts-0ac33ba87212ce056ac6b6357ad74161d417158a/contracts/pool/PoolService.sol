@@ -23,8 +23,6 @@ import {DieselToken} from "../tokens/DieselToken.sol";
 import {Constants} from "../libraries/helpers/Constants.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 
-import "hardhat/console.sol";
-
 /// @title Pool Service
 /// @notice Encapsulates business logic for:
 ///  - Adding/removing pool liquidity

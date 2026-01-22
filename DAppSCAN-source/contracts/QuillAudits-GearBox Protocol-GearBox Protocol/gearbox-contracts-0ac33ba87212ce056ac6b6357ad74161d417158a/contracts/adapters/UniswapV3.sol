@@ -12,8 +12,6 @@ import {ICreditFilter} from "../interfaces/ICreditFilter.sol";
 import {ICreditManager} from "../interfaces/ICreditManager.sol";
 import {CreditManager} from "../credit/CreditManager.sol";
 
-import "hardhat/console.sol";
-
 /// @title UniswapV3 Router adapter
 contract UniswapV3Adapter is ISwapRouter {
     using BytesLib for bytes;

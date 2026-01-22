@@ -8,7 +8,6 @@ import {PercentageMath} from "../libraries/math/PercentageMath.sol";
 import {WadRayMath} from "../libraries/math/WadRayMath.sol";
 import {IInterestRateModel} from "../interfaces/IInterestRateModel.sol";
 import {Constants} from "../libraries/helpers/Constants.sol";
-import "hardhat/console.sol";
 
 /// @title Linear Interest Rate Model
 /// @notice Linear interest rate model, similar which Aave uses

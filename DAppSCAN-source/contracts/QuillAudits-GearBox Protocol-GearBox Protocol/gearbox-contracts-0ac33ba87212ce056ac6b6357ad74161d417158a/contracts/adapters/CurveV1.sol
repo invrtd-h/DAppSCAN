@@ -15,8 +15,6 @@ import {CreditManager} from "../credit/CreditManager.sol";
 import {Constants} from "../libraries/helpers/Constants.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 
-import "hardhat/console.sol";
-
 /// @title CurveV1 adapter
 contract CurveV1Adapter is ICurvePool {
     using SafeMath for uint256;

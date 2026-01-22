@@ -11,7 +11,6 @@ import {Errors} from "../libraries/helpers/Errors.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {SafeMath} from "@openzeppelin/contracts/math/SafeMath.sol";
 
-import "hardhat/console.sol";
 import "../integrations/uniswap/IUniswapV2Router02.sol";
 
 /// @title UniswapV2 Router adapter

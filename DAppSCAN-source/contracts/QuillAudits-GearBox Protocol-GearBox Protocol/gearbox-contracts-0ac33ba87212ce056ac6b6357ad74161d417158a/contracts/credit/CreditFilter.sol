@@ -20,7 +20,6 @@ import {ACLTrait} from "../core/ACLTrait.sol";
 import {Constants} from "../libraries/helpers/Constants.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 
-import "hardhat/console.sol";
 import "../core/ContractsRegister.sol";
 
 /// @title CreditFilter

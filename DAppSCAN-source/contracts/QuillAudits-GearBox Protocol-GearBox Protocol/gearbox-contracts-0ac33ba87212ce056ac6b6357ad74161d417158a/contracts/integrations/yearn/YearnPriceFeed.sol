@@ -11,8 +11,6 @@ import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {SafeMath} from "@openzeppelin/contracts/math/SafeMath.sol";
 import {IYVault} from "./IYVault.sol";
 
-import "hardhat/console.sol";
-
 /// @title Yearn Chainlink pricefeed adapter
 // SWC-135-Code With No Effects: L18 - L69
 contract YearnPriceFeed is Proxy {

@@ -21,8 +21,6 @@ import {ReentrancyGuard} from "@openzeppelin/contracts/utils/ReentrancyGuard.sol
 import {DataTypes} from "../libraries/data/Types.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 
-import "hardhat/console.sol";
-
 /// @title Abstract reusable credit accounts factory
 /// @notice Creates, holds & lend credit accounts to pool contract
 contract AccountFactory is IAccountFactory, ACLTrait, ReentrancyGuard {

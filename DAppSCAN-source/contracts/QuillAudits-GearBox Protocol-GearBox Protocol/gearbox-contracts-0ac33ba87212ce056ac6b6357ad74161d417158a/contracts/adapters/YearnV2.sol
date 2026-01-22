@@ -16,8 +16,6 @@ import {CreditManager} from "../credit/CreditManager.sol";
 import {Constants} from "../libraries/helpers/Constants.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 
-import "hardhat/console.sol";
-
 /// @title Yearn adapter
 contract YearnAdapter is IYVault {
     using SafeMath for uint256;

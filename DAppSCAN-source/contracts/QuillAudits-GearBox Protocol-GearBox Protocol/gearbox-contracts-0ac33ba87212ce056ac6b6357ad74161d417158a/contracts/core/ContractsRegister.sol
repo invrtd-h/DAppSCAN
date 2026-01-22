@@ -6,8 +6,6 @@ pragma solidity ^0.7.4;
 import {Errors} from "../libraries/helpers/Errors.sol";
 import {ACLTrait} from "./ACLTrait.sol";
 
-import "hardhat/console.sol";
-
 /// @title Pools & Contract managers registry
 /// @notice Keeps pools & contract manager addresses
 contract ContractsRegister is ACLTrait {

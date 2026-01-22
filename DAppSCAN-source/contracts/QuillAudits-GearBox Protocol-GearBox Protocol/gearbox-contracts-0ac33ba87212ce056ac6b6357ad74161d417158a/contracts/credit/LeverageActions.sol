@@ -26,8 +26,6 @@ import {YearnAdapter} from "../adapters/YearnV2.sol";
 import {Constants} from "../libraries/helpers/Constants.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 
-import "hardhat/console.sol";
-
 contract LeveragedActions is ReentrancyGuard {
     using SafeMath for uint256;
     using Address for address payable;

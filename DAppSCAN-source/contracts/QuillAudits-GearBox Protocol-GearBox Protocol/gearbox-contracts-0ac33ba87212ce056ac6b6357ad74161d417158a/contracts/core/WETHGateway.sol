@@ -19,8 +19,6 @@ import {IWETHGateway} from "../interfaces/IWETHGateway.sol";
 import {Errors} from "../libraries/helpers/Errors.sol";
 import {Constants} from "../libraries/helpers/Constants.sol";
 
-import "hardhat/console.sol";
-
 /// @title WETHGateway
 /// @notice Used for converting ETH <> WETH
 contract WETHGateway is IWETHGateway {

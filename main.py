@@ -1,5 +1,6 @@
 import json
 import os
+
 import numpy as np
 import pandas as pd
 
@@ -8,10 +9,10 @@ def find_json_files(root_dir):
     json_files = []
     for root, dirs, files in os.walk(root_dir):
         for file in files:
-            if file.endswith('.json'):
+            if file.endswith(".json"):
                 full_path = os.path.join(root, file)
                 json_files.append(full_path)
-                
+
     return json_files
 
 
@@ -32,27 +33,58 @@ def get_reentrant_contracts():
                 reent_found2 = False
                 for swc in swc_list:
                     vuln = swc["category"]
-                    if vuln == 'SWC-107-Reentrancy':
+                    if vuln == "SWC-107-Reentrancy":
                         reent_found = True
                         reent_found2 = True
                 if reent_found2:
                     cnt += 1
-                    print(str(cnt).zfill(3), filename, sep=',')
+                    print(str(cnt).zfill(3), filename, sep=",")
             assert len(jsons) >= 1
         # if reent_found:
         #     print(dir)
-        
-        
+
+
 def flatten():
-    df = pd.read_csv('reentrant-contract.csv', dtype=np.object_)
+    df = pd.read_csv("reentrant-contract.csv", dtype=np.object_)
     for i in df.index:
-        if i + 1 in [18, 21, 22, 23, 24, 30, 31, 39, 45, 53]:
+        if i + 1 in [
+            18,
+            21,
+            23,
+            24,
+            30,
+            31,
+            39,
+            45,
+            53,
+            54,
+            60,
+            63,
+            64,
+            89,
+            91,
+            92,
+            93,
+            94,
+            99,
+            100,
+            102,
+            103,
+            104,
+            105,
+            108,
+            112,
+            114,
+        ]:
+            print("Skipped:", i + 1)
             continue
         flattened_filename = str(df.loc[i, "id"]) + ".sol"
-        code = os.system(f'''uv run ./flattener.py "{df.loc[i, "loc"]}" "./flattened/{flattened_filename}"''')
+        code = os.system(
+            f'''uv run ./flattener.py "{df.loc[i, "loc"]}" "./flattened/{flattened_filename}"'''
+        )
         if code != 0:
             exit(code)
-            
+
 
 def main():
     flatten()
