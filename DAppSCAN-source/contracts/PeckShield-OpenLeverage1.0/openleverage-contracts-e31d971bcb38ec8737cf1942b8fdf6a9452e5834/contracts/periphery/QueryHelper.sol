@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity 0.7.6;
-pragma experimental ABIEncoderV2;
 
 import "../Types.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";

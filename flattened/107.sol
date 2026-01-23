@@ -21,6 +21,7 @@
 */
 
 pragma solidity ^0.5.3;
+pragma experimental ABIEncoderV2;
 
 
 // --- START: IERC1820Registry.sol ---
@@ -1541,8 +1542,6 @@ interface IDelegatableToken {
     along with SKALE Manager.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-pragma experimental ABIEncoderV2;
-
 
 
 // --- START: IHolderDelegation.sol ---
@@ -1614,8 +1613,6 @@ interface IHolderDelegation {
     along with SKALE Manager.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-pragma experimental ABIEncoderV2;
-
 interface IValidatorDelegation {
 
     /// @notice Allows validator to accept tokens delegated at `delegationId`
@@ -1672,8 +1669,6 @@ interface IValidatorDelegation {
     You should have received a copy of the GNU Affero General Public License
     along with SKALE Manager.  If not, see <https://www.gnu.org/licenses/>.
 */
-
-pragma experimental ABIEncoderV2;
 
 
 // --- START: DelegationPeriodManager.sol ---
@@ -1743,8 +1738,6 @@ contract DelegationPeriodManager is Permissions {
     along with SKALE Manager.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-pragma experimental ABIEncoderV2;
-
 
 // --- START: DelegationController.sol ---
 /*
@@ -1766,8 +1759,6 @@ pragma experimental ABIEncoderV2;
     along with SKALE Manager.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-pragma experimental ABIEncoderV2;
-
 
 // --- START: TokenState.sol ---
 /*
@@ -1788,8 +1779,6 @@ pragma experimental ABIEncoderV2;
     You should have received a copy of the GNU Affero General Public License
     along with SKALE Manager.  If not, see <https://www.gnu.org/licenses/>.
 */
-
-pragma experimental ABIEncoderV2;
 
 
 // --- START: TimeHelpers.sol ---
@@ -3004,8 +2993,6 @@ contract DelegationRequestManager is Permissions {
     You should have received a copy of the GNU Affero General Public License
     along with SKALE Manager.  If not, see <https://www.gnu.org/licenses/>.
 */
-
-pragma experimental ABIEncoderV2;
 
 
 

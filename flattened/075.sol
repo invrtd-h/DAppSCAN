@@ -5,7 +5,7 @@
 */
 
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.6;
+pragma solidity 0.8.10;
 
 library Math {
     // SWC-135-Code With No Effects: L10 - L12

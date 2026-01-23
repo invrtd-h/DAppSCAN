@@ -4,7 +4,7 @@
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
 pragma solidity ^0.7.4;
-pragma abicoder v2;
+pragma experimental ABIEncoderV2;
 
 
 // --- START: SafeMath.sol ---
@@ -224,7 +224,6 @@ library SafeMath {
 // --- END: SafeMath.sol ---
 
 // --- START: IUniswapV3.sol ---
-pragma abicoder v2;
 
 
 // --- START: IUniswapV3SwapCallback.sol ---
@@ -722,13 +721,11 @@ interface ICreditFilter {
 // --- START: ICreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 // --- START: IAppCreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 // --- START: Types.sol ---
@@ -1132,7 +1129,6 @@ interface ICreditManager is IAppCreditManager {
 // --- START: CreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 // --- START: Address.sol ---
@@ -1795,7 +1791,6 @@ abstract contract ReentrancyGuard {
 // --- START: IAccountFactory.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 interface IAccountFactory {
@@ -4100,9 +4095,6 @@ contract UniswapV3Adapter is ISwapRouter {
         // SWC-124-Write to Arbitrary Storage Location: L206
         (address tokenOut, address tokenIn) = _extractTokens(params.path);
 
-        console.log(tokenIn);
-        console.log(tokenOut);
-
         // SWC-107-Reentrancy: L210
         creditManager.provideCreditAccountAllowance(
             creditAccount,
@@ -4128,10 +4120,6 @@ contract UniswapV3Adapter is ISwapRouter {
             );
             (amountIn) = abi.decode(result, (uint256));
         }
-
-        console.log("balanceBefore");
-        console.log(balanceBefore);
-        console.log(IERC20(tokenOut).balanceOf(creditAccount));
 
         creditFilter.checkCollateralChange(
             creditAccount,

@@ -54,6 +54,7 @@ def flatten():
             24,
             30,
             31,
+            34,
             39,
             45,
             53,
@@ -62,6 +63,7 @@ def flatten():
             63,
             64,
             89,
+            90,
             91,
             92,
             93,
@@ -79,6 +81,8 @@ def flatten():
             print("Skipped:", i + 1)
             continue
         flattened_filename = str(df.loc[i, "id"]) + ".sol"
+        if os.path.exists(f"./flattened/{flattened_filename}"):
+            continue
         code = os.system(
             f'''uv run ./flattener.py "{df.loc[i, "loc"]}" "./flattened/{flattened_filename}"'''
         )

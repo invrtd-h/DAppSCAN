@@ -6,7 +6,7 @@
 
 // SPDX-License-Identifier: UNLICENSED
 //SWC-102-Outdated Compiler Version: L7
-pragma solidity 0.5.0;
+pragma solidity ^0.5.0;
 
 contract ReentrancyGuard {
     // Booleans are more expensive than uint256 or any type that takes up a full

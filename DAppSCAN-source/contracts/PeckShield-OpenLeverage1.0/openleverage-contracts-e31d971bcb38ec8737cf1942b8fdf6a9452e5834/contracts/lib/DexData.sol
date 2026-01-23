@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: BUSL-1.1
 pragma solidity >=0.6.0 <0.8.0;
-pragma experimental ABIEncoderV2;
 
 
 library DexData {

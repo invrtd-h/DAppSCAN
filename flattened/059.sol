@@ -641,7 +641,6 @@ interface IERC20WithPermit is IERC20 {
 
 
 // --- START: ILendingPool.sol ---
-pragma experimental ABIEncoderV2;
 
 
 interface ILendingPool {

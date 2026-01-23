@@ -6,7 +6,6 @@ pragma experimental ABIEncoderV2;
 
 
 // --- START: BaseParaSwapAdapter.sol ---
-pragma experimental ABIEncoderV2;
 
 
 // --- START: SafeMath.sol ---
@@ -645,7 +644,6 @@ interface IERC20WithPermit is IERC20 {
 
 
 // --- START: ILendingPool.sol ---
-pragma experimental ABIEncoderV2;
 
 
 interface ILendingPool {
@@ -1382,7 +1380,6 @@ library PercentageMath {
 // --- END: PercentageMath.sol ---
 
 // --- START: IParaSwapAugustus.sol ---
-pragma experimental ABIEncoderV2;
 
 interface IParaSwapAugustus {
   function getTokenTransferProxy() external view returns (address);

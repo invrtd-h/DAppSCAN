@@ -3,7 +3,6 @@
 pragma solidity 0.7.6;
 
 import "./MockUniswapV2Pair.sol";
-pragma experimental ABIEncoderV2;
 
 
 contract MockUniswapV2Factory {

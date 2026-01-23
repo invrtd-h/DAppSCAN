@@ -4,8 +4,6 @@ pragma solidity 0.7.6;
 
 import "../liquidity/LPool.sol";
 
-pragma experimental ABIEncoderV2;
-
 contract UpgradeLPoolV2 is LPool {
     int public version;
 

@@ -4,6 +4,7 @@
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
 pragma solidity ^0.7.4;
+pragma experimental ABIEncoderV2;
 
 
 // --- START: Address.sol ---
@@ -1655,7 +1656,6 @@ interface IPoolService is IAppPoolService{
 // --- START: ICreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 // --- START: ICreditFilter.sol ---
@@ -1885,7 +1885,6 @@ interface ICreditFilter {
 // --- START: IAppCreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 // --- START: Types.sol ---

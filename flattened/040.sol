@@ -222,7 +222,6 @@ library SafeMath {
 // --- END: SafeMath.sol ---
 
 // --- START: HoldefiPausableOwnable.sol ---
-pragma experimental ABIEncoderV2;
 
 
 // --- START: HoldefiOwnable.sol ---

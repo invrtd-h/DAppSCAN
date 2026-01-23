@@ -1255,7 +1255,6 @@ contract NonceManager {
 
 // --- START: PredicateHelper.sol ---
 
-pragma abicoder v2;
 
 
 

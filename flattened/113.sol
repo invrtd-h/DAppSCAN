@@ -417,10 +417,7 @@ library SafeMath {
 
 // --- START: MarginVault.sol ---
 /**
- * SPDX-License-Identifier: UNLICENSED
  */
-
-pragma experimental ABIEncoderV2;
 
 
 /**
@@ -627,7 +624,6 @@ library MarginVault {
 
 // --- START: Actions.sol ---
 /**
- * SPDX-License-Identifier: UNLICENSED
  */
 
 
@@ -1002,8 +998,6 @@ interface OtokenInterface {
 
 // --- START: MarginCalculatorInterface.sol ---
 
-pragma experimental ABIEncoderV2;
-
 
 interface MarginCalculatorInterface {
     function getExpiredPayoutRate(address _otoken) external view returns (uint256);
@@ -1120,7 +1114,6 @@ interface MarginPoolInterface {
 
 // --- START: CalleeInterface.sol ---
 /**
- * SPDX-License-Identifier: UNLICENSED
  */
 
 /**

@@ -8,8 +8,6 @@ pragma experimental ABIEncoderV2;
 
 // --- START: ActionBase.sol ---
 
-pragma experimental ABIEncoderV2;
-
 
 // --- START: AdminAuth.sol ---
 
@@ -779,8 +777,6 @@ abstract contract ActionBase is AdminAuth {
 
 // --- START: Subscriptions.sol ---
 
-pragma experimental ABIEncoderV2;
-
 
 // --- START: IDSProxy.sol ---
 
@@ -802,8 +798,6 @@ abstract contract IDSProxy {
 // --- END: IDSProxy.sol ---
 
 // --- START: StrategyData.sol ---
-
-pragma experimental ABIEncoderV2;
 
 /// @title Struct data in a separate contract so it can be used in multiple places
 contract StrategyData {
@@ -1054,8 +1048,6 @@ contract Subscriptions is StrategyData, AdminAuth {
 
 // --- START: IFLParamGetter.sol ---
 
-pragma experimental ABIEncoderV2;
-
 abstract contract IFLParamGetter {
     function getFlashLoanParams(bytes memory _data)
         public
@@ -1233,7 +1225,6 @@ abstract contract ILendingPool {
 // --- END: ILendingPool.sol ---
 
 // --- START: ILendingPoolAddressesProviderV2.sol ---
-pragma experimental ABIEncoderV2;
 
 /**
  * @title LendingPoolAddressesProvider contract
@@ -1291,7 +1282,6 @@ interface ILendingPoolAddressesProviderV2 {
 // --- END: ILendingPoolAddressesProviderV2.sol ---
 
 // --- START: ILendingPoolV2.sol ---
-pragma experimental ABIEncoderV2;
 
 
 library DataTypes {

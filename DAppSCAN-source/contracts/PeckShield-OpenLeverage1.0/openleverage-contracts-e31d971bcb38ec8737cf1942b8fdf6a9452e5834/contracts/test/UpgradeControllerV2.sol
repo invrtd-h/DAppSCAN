@@ -3,8 +3,6 @@ pragma solidity 0.7.6;
 
 import "../ControllerV1.sol";
 
-pragma experimental ABIEncoderV2;
-
 contract UpgradeControllerV2 is ControllerV1 {
     int public version;
 

@@ -4,6 +4,7 @@
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
 pragma solidity ^0.7.4;
+pragma experimental ABIEncoderV2;
 
 
 // --- START: ERC20.sol ---
@@ -860,13 +861,11 @@ interface ICreditFilter {
 // --- START: ICreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 // --- START: IAppCreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 // --- START: Types.sol ---
@@ -2301,7 +2300,6 @@ contract CreditAccount is ICreditAccount, Initializable {
 // --- START: CreditManager.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 
@@ -2373,7 +2371,6 @@ abstract contract ReentrancyGuard {
 // --- START: IAccountFactory.sol ---
 // Gearbox. Generalized leverage protocol that allows to take leverage and then use it across other DeFi protocols and platforms in a composable way.
 // (c) Gearbox.fi, 2021
-pragma abicoder v2;
 
 
 interface IAccountFactory {

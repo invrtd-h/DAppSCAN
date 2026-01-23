@@ -493,7 +493,6 @@ library SafeMath {
 
 
 // --- START: BaseWrapper.sol ---
-pragma experimental ABIEncoderV2;
 
 
 // --- START: SafeERC20.sol ---
@@ -605,7 +604,6 @@ library Math {
 
 
 // --- START: BaseStrategy.sol ---
-pragma experimental ABIEncoderV2;
 
 
 struct StrategyParams {

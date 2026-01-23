@@ -9,9 +9,7 @@ pragma solidity 0.5.11;
 import { IERC20 } from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import { SafeERC20 } from "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import { SafeMath } from "@openzeppelin/contracts/math/SafeMath.sol";
-import {
-    Initializable
-} from "@openzeppelin/upgrades/contracts/Initializable.sol";
+import { Initializable } from "@openzeppelin/upgrades/contracts/Initializable.sol";
 
 import { IStrategy } from "../interfaces/IStrategy.sol";
 import { Governable } from "../governance/Governable.sol";

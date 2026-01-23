@@ -3,7 +3,6 @@ pragma solidity 0.7.6;
 
 
 import "../OpenLevV1.sol";
-pragma experimental ABIEncoderV2;
 
 contract UpgradeOpenLevV2 is OpenLevV1 {
     int public version;
